@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
+using GroupMeetup.Controllers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,25 +14,26 @@ namespace GroupMeetup
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-		public LoginPage ()
+        UserController uc;
+        public LoginPage (UserController ucon)
 		{
-			InitializeComponent ();
+            uc = ucon;
+            InitializeComponent();
+            uc = new UserController();
             this.BackgroundColor = Color.FromHex("#00313c");
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-
-        private void Button_Clicked(object sender, EventArgs e)
+        private void loginClicked(object sender, EventArgs e)
         {
-            //for log in
-            //check if valid u/n and pw
+            uc.login(usernameField.Text, passwordField.Text, this);
         }
 
 
         //open sign in page
         public void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            this.Navigation.PushAsync(new SigninPage());
+            this.Navigation.PushAsync(new SignUpPage(uc));
           
         }
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GroupMeetup.SigninPage"
+             x:Class="GroupMeetup.SignUpPage"
              Title="Sign In"
             >
     <ContentPage.Content>
@@ -31,7 +31,7 @@
                 </Grid.ColumnDefinitions>
                     
                
-                <Entry Text="{Binding FirstName}"
+                <!-- <Entry Text="{Binding FirstName}"
                        Placeholder="First Name"
                        
                        TextColor="AntiqueWhite"
@@ -60,37 +60,37 @@
                       TextColor="AntiqueWhite"
                      Grid.Row="3" Grid.Column="1"
                        />
-
+                -->
                 <Entry Text="{Binding Username}"
+                       x:Name="usernameSignup"
                        Placeholder="Username"
-                       
                        TextColor="AntiqueWhite"
                         Grid.Row="4" Grid.Column="1"
                        />
 
                 <Entry Text="{Binding Password}"
+                       x:Name="passwordSignup"
                        Placeholder="Password"
                        IsPassword="True"
-                     
                        TextColor="AntiqueWhite"
                        Grid.Row="5" Grid.Column="1"
                        />
 
                 <Entry Text="{Binding RepPassword}"
+                       x:Name="passwordSignupRepeat"
                        Placeholder="Repeat Password"
                        IsPassword="True"
-                       
                        TextColor="AntiqueWhite"
                         Grid.Row="6" Grid.Column="1"
                        />
                
                    
-                <Button Text="Log in"
+                <Button Text="Sign up"
                         BackgroundColor="#72275b"
                         TextColor="AntiqueWhite"
                         Grid.Row="7" 
                         Grid.Column="1"
-                        Clicked="Button_Clicked"/>
+                        Clicked="signUpButtonClicked"/>
 
 
             </Grid>
