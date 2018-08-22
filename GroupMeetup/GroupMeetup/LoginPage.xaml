@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroupMeetup.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="0,80,0,0">
+                <Image Source="logo.png"
+                       WidthRequest = "100"
+                       HeightRequest = "100"/>
+            </StackLayout>
+
+            <AbsoluteLayout Padding="0,40,0,0" >
+
+                <Entry Text="{Binding Username}"
+                       Placeholder="Username"
+                       BackgroundColor="#e4e2de"
+                       TextColor="Black"
+                       AbsoluteLayout.LayoutBounds=".5,0,.83,.25" 
+                        AbsoluteLayout.LayoutFlags="All"
+                       />
+                <Entry Text="{Binding Password}"
+                       Placeholder="Password"
+                       IsPassword="True"
+                       BackgroundColor="#e4e2de"
+                       TextColor="Black"
+           AbsoluteLayout.LayoutBounds=".5,.40,.83,.25"
+                       AbsoluteLayout.LayoutFlags="All"
+                       />
+                <Button Text="Log in"
+                        BackgroundColor="#72275b"
+                        TextColor="AntiqueWhite"
+                        AbsoluteLayout.LayoutBounds=".5,.85,.85,.30"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Clicked="Button_Clicked"/>
+
+            </AbsoluteLayout>
+            <StackLayout Padding="0,155,0,0">
+                <Grid>
+                    <Label Text="Sign In"
+                       TextColor="AntiqueWhite"
+                       Grid.Row="0" 
+                       Grid.Column="0"
+                       XAlign="Center"
+                       x:Name="signin">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnTapGestureRecognizerTapped"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Forgot Password?" 
+                        TextColor="AntiqueWhite"
+                       Grid.Row="0" 
+                       Grid.Column="1"
+                       XAlign="Center"
+                       x:Name="ForgotPass">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TappedHandler"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroupMeetup.SigninPage"
+             Title="Sign In"
+            >
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="0,0,0,0">
+                <Image Source="logo.png"
+                       WidthRequest = "100"
+                       HeightRequest = "100"/>
+            </StackLayout>
+            
+           
+               <Grid RowSpacing="10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                       
+                        <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                    
+               
+                <Entry Text="{Binding FirstName}"
+                       Placeholder="First Name"
+                       
+                       TextColor="AntiqueWhite"
+                       Grid.Row="0" 
+                       Grid.Column="1"
+                       />
+
+                <Entry Text="{Binding MiddleName}"
+                       Placeholder="Middle Name"
+                     
+                       TextColor="AntiqueWhite"
+                       Grid.Row="1" Grid.Column="1"                        
+                       />
+
+                <Entry Text="{Binding LastName}"
+                       Placeholder="Last Name"
+                      
+                       TextColor="AntiqueWhite"
+                       Grid.Row="2" Grid.Column="1"
+                       />
+
+                <Entry Text="{Binding Email}"
+                       Placeholder="Email"
+                       Keyboard="Email"
+                       
+                      TextColor="AntiqueWhite"
+                     Grid.Row="3" Grid.Column="1"
+                       />
+
+                <Entry Text="{Binding Username}"
+                       Placeholder="Username"
+                       
+                       TextColor="AntiqueWhite"
+                        Grid.Row="4" Grid.Column="1"
+                       />
+
+                <Entry Text="{Binding Password}"
+                       Placeholder="Password"
+                       IsPassword="True"
+                     
+                       TextColor="AntiqueWhite"
+                       Grid.Row="5" Grid.Column="1"
+                       />
+
+                <Entry Text="{Binding RepPassword}"
+                       Placeholder="Repeat Password"
+                       IsPassword="True"
+                       
+                       TextColor="AntiqueWhite"
+                        Grid.Row="6" Grid.Column="1"
+                       />
+               
+                   
+                <Button Text="Log in"
+                        BackgroundColor="#72275b"
+                        TextColor="AntiqueWhite"
+                        Grid.Row="7" 
+                        Grid.Column="1"
+                        Clicked="Button_Clicked"/>
+
+
+            </Grid>
+     
+           
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

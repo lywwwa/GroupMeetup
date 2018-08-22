@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:GroupMeetup.TabbedPages"
+            x:Class="GroupMeetup.HomePage"
+            BackgroundColor="#00313c"
+            BarTextColor="AntiqueWhite"
+           >
+  <!--Pages can be added as references or inline-->
+    <local:FriendsPage></local:FriendsPage>
+    <local:ChatPage></local:ChatPage>
+    <local:GPSPagexaml></local:GPSPagexaml>
+    <local:EventPage></local:EventPage>
+</TabbedPage>
