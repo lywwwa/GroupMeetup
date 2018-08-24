@@ -1,18 +1,20 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GroupMeetup.Controllers;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace GroupMeetup
 {
 	public partial class App : Application
 	{
-		public App ()
+        UserController uc;
+        public App ()
 		{
+            uc = new UserController();
 			InitializeComponent();
-
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new SplashScreen());
+            MainPage = new NavigationPage(new SplashScreen(uc));
         }
 
 		protected override void OnStart ()

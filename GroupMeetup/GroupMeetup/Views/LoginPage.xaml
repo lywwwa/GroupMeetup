@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="GroupMeetup.LoginPage">
     <ContentPage.Content>
         <StackLayout>
@@ -12,7 +13,7 @@
 
             <AbsoluteLayout Padding="0,40,0,0" >
 
-                <Entry Text=""
+                <Entry Text="{Binding Username}"
                        Placeholder="Username"
                        BackgroundColor="#e4e2de"
                        TextColor="Black"
@@ -20,7 +21,7 @@
                         AbsoluteLayout.LayoutFlags="All"
                        x:Name="Username"
                        />
-                <Entry Text=""
+                <Entry Text="{Binding Password}"
                        Placeholder="Password"
                        IsPassword="True"
                        BackgroundColor="#e4e2de"
@@ -34,21 +35,17 @@
                         TextColor="AntiqueWhite"
                         AbsoluteLayout.LayoutBounds=".5,.85,.85,.30"
                         AbsoluteLayout.LayoutFlags="All"
-                        Clicked="Button_Clicked"/>
+                        Clicked="loginClicked"/>
 
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
-                <Grid>
-                    <Label Text=" "
-                           x:Name="prompt"/>
-                </Grid>
                 <Grid>
                     <Label Text="Sign In"
                        TextColor="AntiqueWhite"
                        Grid.Row="0" 
                        Grid.Column="0"
                        XAlign="Center"
-                       x:Name="signin">
+                       x:Name="signup">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
                                 Tapped="OnTapGestureRecognizerTapped"

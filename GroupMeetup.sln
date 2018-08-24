@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupMeetup.Android", "GroupMeetup\GroupMeetup.Android\GroupMeetup.Android.csproj", "{1F540CC0-E1EB-480D-8858-EFB1161C48D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupMeetup", "GroupMeetup\GroupMeetup\GroupMeetup.csproj", "{6C9EB7DE-B0E4-4E3F-BE32-A218913E93F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupMeetup", "GroupMeetup\GroupMeetup\GroupMeetup.csproj", "{6C9EB7DE-B0E4-4E3F-BE32-A218913E93F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
