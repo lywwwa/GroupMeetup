@@ -4,11 +4,29 @@
              x:Class="GroupMeetup.TabbedPages.EventPage"
              Title="Events"
              BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Event" Icon="add_logo.png" Clicked="NewEvent_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamari2n.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="15">
+           
+            <Button Text="Add New Event"
+                    Clicked="NewEvent_Clicked"
+                    WidthRequest="80" 
+                    HeightRequest="80" 
+                    BorderRadius="40"
+                  VerticalOptions  ="Center"
+                 HorizontalOptions="Center"
+                    />
+            
+            <ListView x:Name="MeetingsListView" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Subject}" Detail="{Binding Location.DisplayName}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,7 +5,10 @@
             x:Class="GroupMeetup.HomePage"
             BackgroundColor="#00313c"
             BarTextColor="AntiqueWhite"
-           >
+            
+
+    >
+    
   <!--Pages can be added as references or inline-->
     <local:FriendsPage></local:FriendsPage>
     <local:ChatPage></local:ChatPage>

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using GroupMeetup.DataSource;
+
 namespace GroupMeetup
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -22,8 +24,28 @@ namespace GroupMeetup
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            //for log in
-            //check if valid u/n and pw
+            string un = Username.Text;
+            string pw = Password.Text;
+
+            
+
+            if (string.IsNullOrEmpty(un)|| string.IsNullOrEmpty(pw))
+            {
+                prompt.Text = "Wrong Username and Password";
+            }
+            else
+            {
+                if (un == "lywwwa" && pw== "password")
+                {
+                    this.Navigation.PushAsync(new HomePage());
+                    this.Navigation.RemovePage(this);
+                }
+                else
+                {
+                    prompt.Text = "Wrong Username and Password";
+                }
+
+            }
         }
 
 

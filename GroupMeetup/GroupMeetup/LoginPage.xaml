@@ -12,20 +12,22 @@
 
             <AbsoluteLayout Padding="0,40,0,0" >
 
-                <Entry Text="{Binding Username}"
+                <Entry Text=""
                        Placeholder="Username"
                        BackgroundColor="#e4e2de"
                        TextColor="Black"
                        AbsoluteLayout.LayoutBounds=".5,0,.83,.25" 
                         AbsoluteLayout.LayoutFlags="All"
+                       x:Name="Username"
                        />
-                <Entry Text="{Binding Password}"
+                <Entry Text=""
                        Placeholder="Password"
                        IsPassword="True"
                        BackgroundColor="#e4e2de"
                        TextColor="Black"
            AbsoluteLayout.LayoutBounds=".5,.40,.83,.25"
                        AbsoluteLayout.LayoutFlags="All"
+                       x:Name="Password"
                        />
                 <Button Text="Log in"
                         BackgroundColor="#72275b"
@@ -36,6 +38,10 @@
 
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
+                <Grid>
+                    <Label Text=" "
+                           x:Name="prompt"/>
+                </Grid>
                 <Grid>
                     <Label Text="Sign In"
                        TextColor="AntiqueWhite"

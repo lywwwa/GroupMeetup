@@ -16,5 +16,10 @@ namespace GroupMeetup.TabbedPages
 		{
 			InitializeComponent ();
 		}
+
+        public void NewEvent_Clicked(object sender, EventArgs e)
+        {
+            this.Navigation.PushAsync(new TabbedPages.AdditionalPages.AddEventPage());
+        }
 	}
 }

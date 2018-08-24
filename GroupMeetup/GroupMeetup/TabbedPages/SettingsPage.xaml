@@ -6,9 +6,10 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Button Text="Log out"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                    Clicked="Logout_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

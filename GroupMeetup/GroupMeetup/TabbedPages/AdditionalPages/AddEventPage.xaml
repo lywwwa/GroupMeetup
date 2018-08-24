@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroupMeetup.TabbedPages.AdditionalPages.AddEventPage"
+             Title="Add New Event">
+    <ContentPage.Content>
+        <StackLayout Spacing="10">
+            <Entry x:Name="Subject" 
+                   Placeholder="Subject"/>
+ 
+            <StackLayout Orientation="Horizontal">
+
+                <DatePicker x:Name="StartDate"/>
+                <TimePicker x:Name="StartTime"/>
+                
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                
+                <DatePicker x:Name="EndDate"/>
+                <TimePicker x:Name="EndTime"/>
+                
+            </StackLayout>
+            
+            <Entry x:Name="Location" Placeholder="Location"/>
+            <Entry x:Name="Attendee" Placeholder="Attendee"/>
+       
+        </StackLayout>
+    </ContentPage.Content>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+</ContentPage>

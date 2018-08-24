@@ -2,12 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.FriendsPage"
-             Title="Friends">
-        <ContentPage.Content>
-            <StackLayout>
-                <Label Text="Welcome to Xam1arin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             Title="Friends"
+             BackgroundColor="AntiqueWhite">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Event" Icon="addperson_logo.png" Clicked="OnButtonClicked"></ToolbarItem>
+        <ToolbarItem Text="Logout" Icon="logout_logo.png" Clicked="Logout_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout 
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All">
+
             </StackLayout>
-        </ContentPage.Content>
+
+            <ContentView x:Name="overlay" 
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                BackgroundColor="#C0808080" 
+                Padding="10, 0">
+
+                <StackLayout Padding="10" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Username Search" />
+                    <Entry />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Cancel" 
+                                Clicked="Cancel_Clicked"/>
+                        <Button Text="Done" 
+                                Clicked="Done_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
     </ContentPage>
