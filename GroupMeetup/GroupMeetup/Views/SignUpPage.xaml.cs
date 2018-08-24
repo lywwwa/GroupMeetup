@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GroupMeetup.Controllers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,16 +11,19 @@ using Xamarin.Forms.Xaml;
 namespace GroupMeetup
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SigninPage : ContentPage
+	public partial class SignUpPage : ContentPage
 	{
-		public SigninPage ()
+        UserController uc;
+		public SignUpPage (UserController ucon)
 		{
+            uc = ucon;
 			InitializeComponent ();
             this.BackgroundColor = Color.FromHex("#00313c");
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void SignUpButtonClicked(object sender, EventArgs e)
         {
+            uc.signup(usernameSignup.Text, passwordSignup.Text, passwordSignupRepeat.Text, this);
             //for sign in
             //check if pass==reppass
             //check if email is already existing

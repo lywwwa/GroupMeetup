@@ -19,8 +19,8 @@ namespace GroupMeetup.TabbedPages
 
         public void Logout_Clicked(object obj,EventArgs a)
         {
-            this.Navigation.PushAsync(new LoginPage());
-            this.Navigation.RemovePage(this);
+          //  this.Navigation.PushAsync(new LoginPage());
+          //  this.Navigation.RemovePage(this);
             //remove all info
         }
 	}

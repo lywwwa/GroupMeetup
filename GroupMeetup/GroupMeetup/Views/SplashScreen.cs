@@ -4,15 +4,17 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using Xamarin.Forms;
+using GroupMeetup.Controllers;
 
 namespace GroupMeetup
 {
     class SplashScreen: ContentPage
     {
         Image splashImage;
-
-        public SplashScreen()
+        UserController uc;
+        public SplashScreen(UserController ucon)
         {
+            uc = ucon;
             NavigationPage.SetHasNavigationBar(this, false);
 
             var sub = new AbsoluteLayout();
@@ -39,7 +41,7 @@ namespace GroupMeetup
             base.OnAppearing();
 
             await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
-            await this.Navigation.PushAsync(new LoginPage());  //After loading  MainPage it gets Navigated to our new Page
+            await this.Navigation.PushAsync(new LoginPage(uc));  //After loading  MainPage it gets Navigated to our new Page
             this.Navigation.RemovePage(this);
 
         }
