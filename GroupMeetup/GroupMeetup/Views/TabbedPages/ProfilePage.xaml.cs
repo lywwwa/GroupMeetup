@@ -15,6 +15,7 @@ namespace GroupMeetup.Views.TabbedPages
 		public ProfilePage ()
 		{
 			InitializeComponent ();
+            //
 		}
 	}
 }
