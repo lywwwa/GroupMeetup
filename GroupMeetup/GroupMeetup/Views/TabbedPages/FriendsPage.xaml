@@ -6,7 +6,7 @@
              BackgroundColor="AntiqueWhite">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Event" Icon="addperson_logo.png" Clicked="OnButtonClicked"></ToolbarItem>
-        <ToolbarItem Text="Logout" Icon="logout_logo.png" Clicked="Logout_Clicked"></ToolbarItem>
+        
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <AbsoluteLayout>

@@ -16,5 +16,11 @@ namespace GroupMeetup
         {
             InitializeComponent();
         }
+
+        public void Account_Clicked(object obj, EventArgs a)
+        {
+            this.Navigation.PushAsync(new Views.TabbedPages.ProfilePage());
+            //
+        }
     }
 }

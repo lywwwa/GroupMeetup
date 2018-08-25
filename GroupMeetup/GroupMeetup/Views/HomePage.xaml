@@ -5,13 +5,14 @@
             x:Class="GroupMeetup.HomePage"
             BackgroundColor="#00313c"
             BarTextColor="AntiqueWhite"
-            
-
     >
-    
-  <!--Pages can be added as references or inline-->
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Icon="account_logo.png" Clicked="Account_Clicked"></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    <!--Pages can be added as references or inline-->
     <local:FriendsPage></local:FriendsPage>
     <local:ChatPage></local:ChatPage>
     <local:GPSPagexaml></local:GPSPagexaml>
     <local:EventPage></local:EventPage>
+    
 </TabbedPage>

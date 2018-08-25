@@ -42,6 +42,7 @@ namespace GroupMeetup
 
             await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
             await this.Navigation.PushAsync(new LoginPage(uc));  //After loading  MainPage it gets Navigated to our new Page
+            
             this.Navigation.RemovePage(this);
 
         }

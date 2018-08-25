@@ -33,11 +33,6 @@ namespace GroupMeetup.TabbedPages
             overlay.IsVisible = false;
         }
 
-        public void Logout_Clicked(object obj, EventArgs a)
-        {
-            //this.Navigation.PushAsync(new LoginPage());
-           // this.Navigation.RemovePage(this);
-            //remove all info
-        }
+       
     }
 }

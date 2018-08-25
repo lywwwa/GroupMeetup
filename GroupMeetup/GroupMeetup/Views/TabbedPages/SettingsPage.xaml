@@ -6,10 +6,7 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Log out"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                    Clicked="Logout_Clicked"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
