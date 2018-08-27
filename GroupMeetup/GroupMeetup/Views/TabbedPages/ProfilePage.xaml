@@ -4,44 +4,43 @@
              x:Class="GroupMeetup.Views.TabbedPages.ProfilePage">
     <ContentPage.Content>
         <StackLayout>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="80"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="logo.png"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="logo.png"
                        Grid.Row="0"
                        Grid.Column="0"
                        Grid.ColumnSpan="3"/>
-                    <Label Text="Binding Name"
+                <Label x:Name="profileFullName"
                        Grid.Row="0"
                        Grid.Column="1"/>
-                    <Label Text="Username: "
+                <Label Text="Username: "
                        Grid.Row="1"
                        Grid.Column="1"/>
-                    <Label Text="Binding Username"
+                <Label x:Name="profileUsername"
                        Grid.Row="1"
                        Grid.Column="1"/>
-                    <Label Text="Email: "
+                <Label Text="Email: "
                        Grid.Row="2"
                        Grid.Column="1"/>
-                    <Label Text="Binding Email"
+                <Label x:Name="profileEmail"
                        Grid.Row="2"
                        Grid.Column="1"/>
-
-                </Grid>
-                <StackLayout Padding="0,0,20,0,0">
-                    <Label Text="Log out"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                 />
-
-                </StackLayout>
+            </Grid>
+            
+            <!-- <StackLayout Padding="0,0,20,0,0">-->
+            <StackLayout>
+                <Label Text="Log Out"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

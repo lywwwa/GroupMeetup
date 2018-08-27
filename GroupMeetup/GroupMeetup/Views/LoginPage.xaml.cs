@@ -17,6 +17,9 @@ namespace GroupMeetup
         UserController uc;
         public LoginPage (UserController ucon)
 		{
+            // ASK FOR PERMISSION (GPS, STORAGE)s
+            
+
             uc = ucon;
             InitializeComponent();
             uc = new UserController();
@@ -26,7 +29,7 @@ namespace GroupMeetup
 
         private void LoginClicked(object sender, EventArgs e)
         {
-            uc.login(usernameField.Text, passwordField.Text, this);
+            uc.Login(usernameField.Text, passwordField.Text, this);
         }
 
 

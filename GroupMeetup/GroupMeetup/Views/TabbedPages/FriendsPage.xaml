@@ -30,7 +30,7 @@
                         <Button Text="Cancel" 
                                 Clicked="Cancel_Clicked"/>
                         <Button Text="Done" 
-                                Clicked="Done_Clicked"/>
+                                Clicked="searchUsername"/>
                     </StackLayout>
                 </StackLayout>
             </ContentView>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GroupMeetup.Controllers;
 
 namespace GroupMeetup.TabbedPages
 {
@@ -23,7 +24,7 @@ namespace GroupMeetup.TabbedPages
             overlay.IsVisible = true;
         }
 
-        public void Done_Clicked(object add, EventArgs evv)
+        public void searchUsername(object add, EventArgs evv)
         {
             overlay.IsVisible = false;
         }
