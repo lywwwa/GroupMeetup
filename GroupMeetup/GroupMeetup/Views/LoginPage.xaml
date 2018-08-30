@@ -40,7 +40,7 @@
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
                 <Grid>
-                    <Label Text="Sign In"
+                    <Label Text="Sign Up"
                        TextColor="AntiqueWhite"
                        Grid.Row="0" 
                        Grid.Column="0"

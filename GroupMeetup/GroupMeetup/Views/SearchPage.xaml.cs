@@ -29,15 +29,18 @@ namespace GroupMeetup.Views
             }
             List<User> searchResults = uc.SearchUsers(usernameSearch.Text, this);
             Label l;
-            foreach(User u in searchResults)
+            foreach (User u in searchResults)
             {
                 l = new Label
                 {
                     Text = "Name: " + u.FirstName + " " + u.LastName + "\nUsername: " + u.Username,
-                    FontSize = 20//,
+                    FontSize = 20,
+
                     //userID = Convert.ToInt32(u.ID)
                 };
+                l.GestureRecognizers.Add(new TapGestureRecognizer((view) => this.Navigation.PushAsync(new Views.TabbedPages.ProfilePage(uc, u))));
                 results.Children.Add(l);
             }
+        }
     }
 }
