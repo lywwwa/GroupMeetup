@@ -5,6 +5,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using GroupMeetup.Controllers;
+using GroupMeetup.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

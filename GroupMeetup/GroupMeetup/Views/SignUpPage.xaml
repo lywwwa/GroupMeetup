@@ -5,15 +5,14 @@
              Title="Sign In"
             >
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Padding="0,0,0,0">
-                <Image Source="logo.png"
-                       WidthRequest = "100"
-                       HeightRequest = "100"/>
-            </StackLayout>
-            
-           
-               <Grid RowSpacing="10" >
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="0,0,0,0">
+                    <Image Source="logo.png"
+                           WidthRequest = "100"
+                           HeightRequest = "100"/>
+                </StackLayout>
+                <Grid RowSpacing="10" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
@@ -22,81 +21,76 @@
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
-                       
                         <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="45" />
-                    <ColumnDefinition Width="250" />
-                </Grid.ColumnDefinitions>
-                    
-               
-                <!-- <Entry Text="{Binding FirstName}"
+                        <ColumnDefinition Width="250" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Entry Text="{Binding FirstName}"
                        Placeholder="First Name"
-                       
+                       x:Name="firstNameField"
                        TextColor="AntiqueWhite"
                        Grid.Row="0" 
                        Grid.Column="1"
                        />
 
-                <Entry Text="{Binding MiddleName}"
-                       Placeholder="Middle Name"
-                     
-                       TextColor="AntiqueWhite"
-                       Grid.Row="1" Grid.Column="1"                        
-                       />
+                    <!-- <Entry Text="{Binding MiddleName}"
+                           Placeholder="Middle Name"
+                           x:Name="firstNameField"
+                           TextColor="AntiqueWhite"
+                           Grid.Row="1" Grid.Column="1"                        
+                           /> -->
 
-                <Entry Text="{Binding LastName}"
-                       Placeholder="Last Name"
-                      
-                       TextColor="AntiqueWhite"
-                       Grid.Row="2" Grid.Column="1"
-                       />
+                    <Entry Text="{Binding LastName}"
+                           Placeholder="Last Name"
+                           x:Name="lastNameField"
+                           TextColor="AntiqueWhite"
+                           Grid.Row="2" Grid.Column="1"
+                           />
 
-                <Entry Text="{Binding Email}"
-                       Placeholder="Email"
-                       Keyboard="Email"
+                    <!-- <Entry Text="{Binding Email}"
+                           Placeholder="Email"
+                           Keyboard="Email"
                        
-                      TextColor="AntiqueWhite"
-                     Grid.Row="3" Grid.Column="1"
-                       />
-                -->
-                <Entry Text="{Binding Username}"
-                       x:Name="usernameSignup"
-                       Placeholder="Username"
-                       TextColor="AntiqueWhite"
-                        Grid.Row="4" Grid.Column="1"
-                       />
+                          TextColor="AntiqueWhite"
+                         Grid.Row="3" Grid.Column="1"
+                           />
+                    -->
+                    <Entry Text="{Binding Username}"
+                           x:Name="usernameSignup"
+                           Placeholder="Username"
+                           TextColor="AntiqueWhite"
+                            Grid.Row="4" Grid.Column="1"
+                           />
 
-                <Entry Text="{Binding Password}"
-                       x:Name="passwordSignup"
-                       Placeholder="Password"
-                       IsPassword="True"
-                       TextColor="AntiqueWhite"
-                       Grid.Row="5" Grid.Column="1"
-                       />
+                    <Entry Text="{Binding Password}"
+                           x:Name="passwordSignup"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           TextColor="AntiqueWhite"
+                           Grid.Row="5" Grid.Column="1"
+                           />
 
-                <Entry Text="{Binding RepPassword}"
-                       x:Name="passwordSignupRepeat"
-                       Placeholder="Repeat Password"
-                       IsPassword="True"
-                       TextColor="AntiqueWhite"
-                        Grid.Row="6" Grid.Column="1"
-                       />
-               
-                   
-                <Button Text="Sign up"
-                        BackgroundColor="#72275b"
-                        TextColor="AntiqueWhite"
-                        Grid.Row="7" 
-                        Grid.Column="1"
-                        Clicked="SignUpButtonClicked"/>
+                    <Entry Text="{Binding RepPassword}"
+                           x:Name="passwordSignupRepeat"
+                           Placeholder="Repeat Password"
+                           IsPassword="True"
+                           TextColor="AntiqueWhite"
+                            Grid.Row="6" Grid.Column="1"
+                           />
 
 
-            </Grid>
-     
-           
-
-        </StackLayout>
+                    <Button Text="Sign up"
+                            BackgroundColor="#72275b"
+                            TextColor="AntiqueWhite"
+                            Grid.Row="7" 
+                            Grid.Column="1"
+                            Clicked="SignUpButtonClicked"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

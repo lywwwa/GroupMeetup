@@ -23,7 +23,7 @@ namespace GroupMeetup
 
         private void SignUpButtonClicked(object sender, EventArgs e)
         {
-            uc.Signup(usernameSignup.Text, passwordSignup.Text, passwordSignupRepeat.Text, this);
+            uc.Signup(usernameSignup.Text, passwordSignup.Text, passwordSignupRepeat.Text, firstNameField.Text, lastNameField.Text, this);
             //for sign in
             //check if pass==reppass
             //check if email is already existing

@@ -6,8 +6,9 @@ namespace GroupMeetup.Models
 {
     public class User
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string username { get; set; }
+        public int ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
     }
 }

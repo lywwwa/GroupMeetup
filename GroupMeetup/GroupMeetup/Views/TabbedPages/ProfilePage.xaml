@@ -19,20 +19,18 @@
                        Grid.Column="0"
                        Grid.ColumnSpan="3"/>
                 <Label x:Name="profileFullName"
-                       Grid.Row="0"
-                       Grid.Column="1"/>
-                <Label Text="Username: "
                        Grid.Row="1"
                        Grid.Column="1"/>
                 <Label x:Name="profileUsername"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        Grid.Column="1"/>
-                <Label Text="Email: "
+                <!-- <Label Text="Email: "
                        Grid.Row="2"
                        Grid.Column="1"/>
                 <Label x:Name="profileEmail"
                        Grid.Row="2"
                        Grid.Column="1"/>
+                -->
             </Grid>
             
             <!-- <StackLayout Padding="0,0,20,0,0">-->

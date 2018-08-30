@@ -4208,12 +4208,6 @@ namespace GroupMeetup.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f09004e
-			public const int ApplicationName = 2131296334;
-			
-			// aapt resource value: 0x7f09004d
-			public const int Hello = 2131296333;
-			
 			// aapt resource value: 0x7f090026
 			public const int abc_action_bar_home_description = 2131296294;
 			

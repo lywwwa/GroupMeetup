@@ -16,13 +16,12 @@ namespace GroupMeetup.Views.TabbedPages
 	public partial class ProfilePage : ContentPage
 	{
         UserController uc;
-		public ProfilePage (UserController ucon)
+		public ProfilePage (UserController ucon, User profile)
 		{
             uc = ucon;
             InitializeComponent ();
-            User profile = uc.GetUserData("ovvnzixl", this);
-            profileUsername.Text = profile.username;
-            profileFullName.Text = profile.firstName + " " + profile.lastName;
+            profileUsername.Text = "Username: " + profile.Username;
+            profileFullName.Text = "Full Name: "+ profile.FirstName + " " + profile.LastName;
         }
 	}
 }

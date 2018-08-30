@@ -8,6 +8,8 @@
 
     >
     <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Add Event" Icon="addperson_logo.png" Clicked="OnButtonClicked"></ToolbarItem>
+        <ToolbarItem Text="Logout" Icon="logout_logo.png" Clicked="Logout_Clicked"></ToolbarItem>
         <ToolbarItem Icon="account_logo.png" Clicked="Account_Clicked"></ToolbarItem>
     </TabbedPage.ToolbarItems>
   <!--Pages can be added as references or inline-->
