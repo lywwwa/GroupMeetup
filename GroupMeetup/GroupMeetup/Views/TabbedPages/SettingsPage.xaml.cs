@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GroupMeetup.TabbedPages
+namespace GroupMeetup.Views.TabbedPages
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SettingsPage : ContentPage
 	{
 		public SettingsPage ()
@@ -19,8 +15,8 @@ namespace GroupMeetup.TabbedPages
 
         public void Logout_Clicked(object obj,EventArgs a)
         {
-            this.Navigation.PushAsync(new LoginPage());
-            this.Navigation.RemovePage(this);
+           this.Navigation.PushAsync(new LoginPage());
+           this.Navigation.RemovePage(this);
             //remove all info
         }
 	}

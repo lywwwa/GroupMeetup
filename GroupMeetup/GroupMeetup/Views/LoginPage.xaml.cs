@@ -26,7 +26,7 @@ namespace GroupMeetup
 
         private void loginClicked(object sender, EventArgs e)
         {
-            uc.login(usernameField.Text, passwordField.Text, this);
+            uc.login(Username.Text, Password.Text, this);
         }
 
 
