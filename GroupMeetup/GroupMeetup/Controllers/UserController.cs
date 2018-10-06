@@ -40,7 +40,7 @@ namespace GroupMeetup.Controllers
                 string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/signup.php?username=" + username + "&password=" + hash + "&firstname=" + firstName + "&lastname="+ lastName));
                 if (response == "success")
                 {
-                    signup.DisplayAlert("Success", response, "Log-in");
+                    signup.DisplayAlert("Success", "Account created.", "Log-in");
                     signup.Navigation.PopToRootAsync();
                 }
                 else signup.DisplayAlert("Error", response, "Try again");
@@ -147,7 +147,7 @@ namespace GroupMeetup.Controllers
                 {
                     builder.Append(bytes[i].ToString("x2"));
                 }
-                form.DisplayAlert("", builder.ToString(), "okay");
+                //form.DisplayAlert("", builder.ToString(), "okay");
                 return builder.ToString();
             }
         }
