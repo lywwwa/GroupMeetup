@@ -5,7 +5,6 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using GroupMeetup.Controllers;
-using GroupMeetup.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,9 +17,6 @@ namespace GroupMeetup
         UserController uc;
         public LoginPage (UserController ucon)
 		{
-            // ASK FOR PERMISSION (GPS, STORAGE)s
-            
-
             uc = ucon;
             InitializeComponent();
             uc = new UserController();
@@ -28,9 +24,9 @@ namespace GroupMeetup
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private void LoginClicked(object sender, EventArgs e)
+        private void loginClicked(object sender, EventArgs e)
         {
-            uc.Login(usernameField.Text, passwordField.Text, this);
+            uc.login(Username.Text, Password.Text, this);
         }
 
 
