@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GroupMeetup.Controllers;
 using GroupMeetup.Models;
+using GroupMeetup.Views;
 
 namespace GroupMeetup
 {
@@ -15,12 +16,17 @@ namespace GroupMeetup
     public partial class HomePage : TabbedPage
     {
         UserController uc;
-        User currentUser;
+        public User currentUser;
         public HomePage (UserController ucon, User cUser)
         {
             currentUser = cUser;
             uc = ucon;
             InitializeComponent();
+
+            Children.Add(new TabbedPages.FriendsPage());
+            Children.Add(new TabbedPages.NotificationPage(ucon.currentUser));
+            Children.Add(new TabbedPages.GPSPagexaml());
+            Children.Add(new TabbedPages.EventPage());
             NavigationPage.SetHasBackButton(this, false);
         }
 

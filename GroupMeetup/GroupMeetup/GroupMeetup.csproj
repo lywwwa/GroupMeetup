@@ -20,6 +20,9 @@
     <Compile Update="Views\TabbedPages\AdditionalPages\AddEventPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="Views\TabbedPages\NotificationPage.xaml.cs">
+      <DependentUpon>NotificationPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +47,7 @@
     <EmbeddedResource Update="Views\TabbedPages\GPSPagexaml.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TabbedPages\ProfilePage.xaml">
+    <EmbeddedResource Update="Views\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TabbedPages\SettingsPage.xaml">

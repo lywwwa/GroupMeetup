@@ -7,20 +7,23 @@ using Mzsoft.BCrypt;
 
 using Xamarin.Forms;
 using GroupMeetup.Models;
+using System.Diagnostics;
 
 namespace GroupMeetup.Controllers
 {
     public class UserController
     {
         WebClient client;
+        public User currentUser;
         public void Login(string username, string password, LoginPage login)
         {
             client = new WebClient();
             password = Sha256(password, login);
             string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/login.php?username=" + username + "&password=" + password));
+            Trace.WriteLine(response);
             if (response == "success")
             {
-                User currentUser = GetUserData(username, login);
+                currentUser = GetUserData(username, login);
                 login.Navigation.PushAsync(new HomePage(this, currentUser));
             }
             else login.DisplayAlert("Invalid credentials", "Username or password is incorrect.", "Try again");
@@ -90,6 +93,48 @@ namespace GroupMeetup.Controllers
 
             //return searchResultString;
             return searchResult;
+        }
+
+        public int GetUserConnection(int U1, int U2)
+        {
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/friendConnection.php?user1=" + U1 +"&user2="+U2));
+            return Convert.ToInt32(response);
+        }
+
+        public int GetUserLatestAction(int U1, int U2)
+        {
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/friendLatestAction.php?user1=" + U1 + "&user2=" + U2));
+            return Convert.ToInt32(response);
+        }
+
+        public bool ManageConnection(User U1, User U2, Button Action, ContentPage page)
+        {
+            string ActionText = "";
+            if (Action.Text.Contains("Add")) ActionText = "add";
+            else if (Action.Text.Contains("Cancel")) ActionText = "cancel";
+            else if (Action.Text.Contains("Remove")) ActionText = "remove";
+
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/manageConnection.php?user1=" + U1.ID + "&user2=" + U2.ID + "&action=" + ActionText));
+            if (response == "success")
+            {
+                if (Action.Text.Contains("Add"))
+                {
+                    Action.Text = "Cancel friend request";
+                }
+                else if (Action.Text.Contains("Cancel") || Action.Text.Contains("Remove"))
+                {
+                    Action.Text = "Add " + U2.Username + " as Friend";
+                }
+                return true;
+            }
+            else
+            {
+                page.DisplayAlert("", "Error", "Okay");
+                return false;
+            }
         }
 
         public static string Sha256(string plainText, ContentPage form)

@@ -31,11 +31,19 @@
                        Grid.Row="2"
                        Grid.Column="1"/>
                 -->
+                
             </Grid>
             
             <!-- <StackLayout Padding="0,0,20,0,0">-->
             <StackLayout>
-                <Label Text="Log Out"
+                <Button x:Name="FriendButton"
+                        Text="Add as Friend"
+                        Clicked="FriendButtonClicked"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        />
+                <Button x:Name="LogOutL"
+                       Text="Log Out"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"/>
             </StackLayout>

@@ -13,8 +13,8 @@
         <ToolbarItem Icon="account_logo.png" Clicked="Account_Clicked"></ToolbarItem>
     </TabbedPage.ToolbarItems>
   <!--Pages can be added as references or inline-->
-    <local:FriendsPage></local:FriendsPage>
-    <local:ChatPage></local:ChatPage>
+    <!-- <local:FriendsPage></local:FriendsPage>
+    <local:NotificationPage></local:NotificationPage>
     <local:GPSPagexaml></local:GPSPagexaml>
-    <local:EventPage></local:EventPage>
+    <local:EventPage></local:EventPage> -->
 </TabbedPage>
