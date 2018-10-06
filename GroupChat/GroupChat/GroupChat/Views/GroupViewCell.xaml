@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroupChat.Views.GroupViewCell">
+    
+    <!-- Custom LsitView Item/Cell per group -->
+    
+    <ViewCell.View>
+        <StackLayout x:Name="OutStack" Orientation="Horizontal" Margin="5">
+            <!-- Sample Logo Box -->
+            <Label x:Name="lblGroupLabel" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Text="{Binding GroupLabel}" WidthRequest="50" BackgroundColor="Accent" TextColor="LightGray"
+                   VerticalOptions="Center" HorizontalOptions="Center"/>
+            
+            <!-- Sample Layout Ng description -->
+            <StackLayout x:Name="InStack" Orientation="Vertical" Spacing="0" Padding="5, 0, 0, 0">
+                <Label x:Name="lblGroupName" Text="{Binding GroupName}" FontAttributes="Bold" FontSize="Small"/>
+                <Label x:Name="lblGroupSubName" Text="{Binding GroupSubName}" FontSize="Micro"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

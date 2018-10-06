@@ -4,10 +4,6 @@
              x:Class="GroupMeetup.TabbedPages.FriendsPage"
              Title="Friends"
              BackgroundColor="AntiqueWhite">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Event" Icon="addperson_logo.png" Clicked="OnButtonClicked"></ToolbarItem>
-        <ToolbarItem Text="Logout" Icon="logout_logo.png" Clicked="Logout_Clicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout 
@@ -16,7 +12,7 @@
 
             </StackLayout>
 
-            <ContentView x:Name="overlay" 
+            <!-- <ContentView x:Name="overlay" 
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
                 AbsoluteLayout.LayoutFlags="All" 
                 BackgroundColor="#C0808080" 
@@ -24,16 +20,17 @@
 
                 <StackLayout Padding="10" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Username Search" />
-                    <Entry />
+                    <Entry x:Name="usernameSearch"
+                           Placeholder="Search for username"/>
 
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Cancel" 
                                 Clicked="Cancel_Clicked"/>
-                        <Button Text="Done" 
-                                Clicked="Done_Clicked"/>
+                        <Button Text="Search"
+                                Clicked="SearchClicked"/>
                     </StackLayout>
                 </StackLayout>
-            </ContentView>
+            </ContentView> -->
         </AbsoluteLayout>
     </ContentPage.Content>
     </ContentPage>

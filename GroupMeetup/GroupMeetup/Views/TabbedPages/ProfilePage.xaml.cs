@@ -7,15 +7,21 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GroupMeetup.TabbedPages
+using GroupMeetup.Controllers;
+using GroupMeetup.Models;
+
+namespace GroupMeetup.Views.TabbedPages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-		public ProfilePage ()
+        UserController uc;
+		public ProfilePage (UserController ucon, User profile)
 		{
-			InitializeComponent ();
-        
-		}
+            uc = ucon;
+            InitializeComponent ();
+            profileUsername.Text = "Username: " + profile.Username;
+            profileFullName.Text = "Full Name: "+ profile.FirstName + " " + profile.LastName;
+        }
 	}
 }
