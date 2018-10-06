@@ -14,7 +14,7 @@ namespace GroupMeetup.TabbedPages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FriendsPage : ContentPage
 	{
-        UserController uc;
+        //UserController uc;
 		public FriendsPage ()
 		{
 			InitializeComponent ();

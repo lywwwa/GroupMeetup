@@ -15,18 +15,17 @@ namespace GroupMeetup
 	public partial class LoginPage : ContentPage
 	{
         UserController uc;
-        public LoginPage (UserController ucon)
+        public LoginPage ()
 		{
-            uc = ucon;
             InitializeComponent();
             uc = new UserController();
             this.BackgroundColor = Color.FromHex("#00313c");
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private void loginClicked(object sender, EventArgs e)
+        private void LoginClicked(object sender, EventArgs e)
         {
-            uc.login(Username.Text, Password.Text, this);
+            uc.Login(usernameField.Text, passwordField.Text, this);
         }
 
 

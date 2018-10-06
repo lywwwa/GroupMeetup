@@ -10,7 +10,7 @@ namespace GroupMeetup.Views.TabbedPages
 	{
 		public SettingsPage ()
 		{
-			InitializeComponent ();
+			//InitializeComponent();
 		}
 
         public void Logout_Clicked(object obj,EventArgs a)
