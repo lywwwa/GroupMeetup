@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.SignUpPage"
-             Title="Sign In"
+             Title="Sign Up"
             >
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout Padding="0,0,0,0">
+                <StackLayout Padding="0,10,0,20">
                     <Image Source="logo.png"
                            WidthRequest = "100"
                            HeightRequest = "100"/>
                 </StackLayout>
-                <Grid RowSpacing="10" >
+                <Grid RowSpacing="20" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
@@ -20,21 +20,22 @@
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
                         <RowDefinition Height="40" />
-                        <RowDefinition Height="40" />
-                        <RowDefinition Height="40" />
+                        <RowDefinition Height="50" />
+
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="45" />
-                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
                     </Grid.ColumnDefinitions>
 
 
                     <Entry Text="{Binding FirstName}"
-                       Placeholder="First Name"
-                       x:Name="firstNameField"
-                       TextColor="AntiqueWhite"
-                       Grid.Row="0" 
-                       Grid.Column="1"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
+                           Placeholder="First Name"
+                           x:Name="firstNameField"
+                           Grid.Row="0" Grid.Column="1"
                        />
 
                     <!-- <Entry Text="{Binding MiddleName}"
@@ -45,10 +46,11 @@
                            /> -->
 
                     <Entry Text="{Binding LastName}"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            Placeholder="Last Name"
                            x:Name="lastNameField"
-                           TextColor="AntiqueWhite"
-                           Grid.Row="2" Grid.Column="1"
+                           Grid.Row="1" Grid.Column="1"
                            />
 
                     <!-- <Entry Text="{Binding Email}"
@@ -60,33 +62,37 @@
                            />
                     -->
                     <Entry Text="{Binding Username}"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            x:Name="usernameSignup"
                            Placeholder="Username"
-                           TextColor="AntiqueWhite"
-                            Grid.Row="4" Grid.Column="1"
+                           Grid.Row="2" Grid.Column="1"
                            />
 
                     <Entry Text="{Binding Password}"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            x:Name="passwordSignup"
                            Placeholder="Password"
                            IsPassword="True"
-                           TextColor="AntiqueWhite"
-                           Grid.Row="5" Grid.Column="1"
+                           Grid.Row="3" Grid.Column="1"
                            />
 
                     <Entry Text="{Binding RepPassword}"
                            x:Name="passwordSignupRepeat"
                            Placeholder="Repeat Password"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            IsPassword="True"
-                           TextColor="AntiqueWhite"
-                            Grid.Row="6" Grid.Column="1"
+                           Grid.Row="4" Grid.Column="1"
                            />
 
 
                     <Button Text="Sign up"
                             BackgroundColor="#72275b"
                             TextColor="AntiqueWhite"
-                            Grid.Row="7" 
+                            FontSize="Medium"
+                            Grid.Row="6" 
                             Grid.Column="1"
                             Clicked="SignUpButtonClicked"/>
                 </Grid>

@@ -52,6 +52,7 @@
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
+                    
                     <Label Text="Forgot Password?" 
                         TextColor="AntiqueWhite"
                        Grid.Row="0" 
