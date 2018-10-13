@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.NotificationPage"
-             Title="Notifications"
+             Icon="notification_logo.png"
              BackgroundColor="White"
              >
     <ContentPage.Content>
@@ -14,12 +14,12 @@
 
         <ListView x:Name="NotificationsList"
                               x:FieldModifier="public"
-                              BackgroundColor="#515689"
+                              
                               ItemTapped="NotificationsList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Height="60">
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#515689">
                             <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
                             <StackLayout Orientation="Vertical" Margin="5,5,10,5">
                                 <Label Text="{Binding NotificationContent}"/>

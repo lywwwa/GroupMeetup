@@ -14,14 +14,19 @@ namespace GroupMeetup.TabbedPages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FriendsPage : ContentPage
 	{
-        //UserController uc;
-		public FriendsPage ()
+        UserController uc;
+		public FriendsPage (UserController ucon)
 		{
-			InitializeComponent ();
+            uc = ucon;
+            InitializeComponent ();
+            
             //overlay.IsVisible = false;
         }
-      
-        
+
+        public void OnButtonClicked(object a, EventArgs e)
+        {
+            this.Navigation.PushAsync(new Views.SearchPage(uc));
+        }
 
         public void Cancel_Clicked(object ad, EventArgs ev)
         {

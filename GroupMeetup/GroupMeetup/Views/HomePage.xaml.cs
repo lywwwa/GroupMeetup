@@ -23,11 +23,12 @@ namespace GroupMeetup
             uc = ucon;
             InitializeComponent();
 
-            Children.Add(new TabbedPages.FriendsPage());
+            Children.Add(new TabbedPages.FriendsPage(uc));
             Children.Add(new TabbedPages.NotificationPage(ucon.currentUser));
             Children.Add(new TabbedPages.GPSPagexaml());
             Children.Add(new TabbedPages.EventPage());
             NavigationPage.SetHasBackButton(this, false);
+            this.BarBackgroundColor = Color.FromHex("#392c4b");
         }
 
         public void Account_Clicked(object w,EventArgs args)
@@ -36,10 +37,10 @@ namespace GroupMeetup
         }
 
 
-        public void OnButtonClicked(object a, EventArgs e)
+       /* public void OnButtonClicked(object a, EventArgs e)
         {
             this.Navigation.PushAsync(new Views.SearchPage(uc));
-        }
+        }*/
 
         public void Logout_Clicked(object obj, EventArgs a)
         {

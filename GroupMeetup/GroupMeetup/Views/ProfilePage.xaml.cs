@@ -42,9 +42,9 @@ namespace GroupMeetup.Views.TabbedPages
             }
         }
 
-        private bool FriendButtonClicked(object sender, EventArgs e)
+        public void FriendButtonClicked(object sender, EventArgs e)
         {
-            return uc.ManageConnection(uc.currentUser, profile, FriendButton, this);
+            //return uc.ManageConnection(uc.currentUser, profile, FriendButton, this);
         }
 
         private int CallGetUserConnectionStatus(int User1, int User2)
