@@ -38,7 +38,7 @@ namespace GroupMeetup.Views
 
                     //userID = Convert.ToInt32(u.ID)
                 };
-                l.GestureRecognizers.Add(new TapGestureRecognizer((view) => this.Navigation.PushAsync(new Views.TabbedPages.ProfilePage(uc, u))));
+                l.GestureRecognizers.Add(new TapGestureRecognizer((view) => this.Navigation.PushAsync(new ProfilePage(uc, u))));
                 results.Children.Add(l);
             }
         }

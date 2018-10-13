@@ -31,11 +31,12 @@
 
 
                     <Entry Text="{Binding FirstName}"
+                       Placeholder="First Name"
+                       x:Name="firstNameField"
                            BackgroundColor="#e4e2de"
                            TextColor="Black"
-                           Placeholder="First Name"
-                           x:Name="firstNameField"
-                           Grid.Row="0" Grid.Column="1"
+                       Grid.Row="0" 
+                       Grid.Column="1"
                        />
 
                     <!-- <Entry Text="{Binding MiddleName}"
@@ -46,10 +47,10 @@
                            /> -->
 
                     <Entry Text="{Binding LastName}"
-                           BackgroundColor="#e4e2de"
-                           TextColor="Black"
                            Placeholder="Last Name"
                            x:Name="lastNameField"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            Grid.Row="1" Grid.Column="1"
                            />
 
@@ -62,36 +63,35 @@
                            />
                     -->
                     <Entry Text="{Binding Username}"
-                           BackgroundColor="#e4e2de"
-                           TextColor="Black"
                            x:Name="usernameSignup"
                            Placeholder="Username"
-                           Grid.Row="2" Grid.Column="1"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
+                            Grid.Row="2" Grid.Column="1"
                            />
 
                     <Entry Text="{Binding Password}"
-                           BackgroundColor="#e4e2de"
-                           TextColor="Black"
                            x:Name="passwordSignup"
                            Placeholder="Password"
                            IsPassword="True"
+                           BackgroundColor="#e4e2de"
+                           TextColor="Black"
                            Grid.Row="3" Grid.Column="1"
                            />
 
                     <Entry Text="{Binding RepPassword}"
                            x:Name="passwordSignupRepeat"
                            Placeholder="Repeat Password"
+                           IsPassword="True"
                            BackgroundColor="#e4e2de"
                            TextColor="Black"
-                           IsPassword="True"
-                           Grid.Row="4" Grid.Column="1"
+                            Grid.Row="4" Grid.Column="1"
                            />
 
 
                     <Button Text="Sign up"
                             BackgroundColor="#72275b"
                             TextColor="AntiqueWhite"
-                            FontSize="Medium"
                             Grid.Row="6" 
                             Grid.Column="1"
                             Clicked="SignUpButtonClicked"/>

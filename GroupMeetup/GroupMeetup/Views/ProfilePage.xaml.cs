@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 using GroupMeetup.Controllers;
 using GroupMeetup.Models;
 
-namespace GroupMeetup.Views.TabbedPages
+namespace GroupMeetup.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
@@ -27,33 +27,78 @@ namespace GroupMeetup.Views.TabbedPages
             if (uc.currentUser.ID == profile.ID)
             {
                 FriendButton.IsVisible = false;
+                FriendRejectButton.IsVisible = false;
             }
             else
             {
                 LogOutL.IsVisible = false;
-                int ConnectionStatus = CallGetUserConnectionStatus(uc.currentUser.ID, profile.ID);
-                int LatestAction = CallGetUserLatestAction(uc.currentUser.ID, profile.ID);
-                if (ConnectionStatus == 0)
+                string ConnectionStatus = CallGetUserConnectionStatus(uc.currentUser.ID, profile.ID);
+                string LatestAction = "";
+                if (ConnectionStatus == "null")
                 {
-                    if(LatestAction == 1) FriendButton.Text = "Cancel friend request";
-                    else FriendButton.Text = "Add " + profile.Username + " as Friend";
+                    ConnectionStatus = CallGetUserConnectionStatus(profile.ID, uc.currentUser.ID);
+                    if (ConnectionStatus == "null")
+                    {
+                        FriendButton.Text = "Add " + uc.currentUser.Username + " as Friend";
+                        FriendRejectButton.IsVisible = false;
+                    }
+                    else if (ConnectionStatus == "0")
+                    {
+                        LatestAction = CallGetUserLatestAction(profile.ID, uc.currentUser.ID);
+                        if (LatestAction == "1")
+                        {
+                            FriendButton.Text = "Accept friend request";
+                        }
+                        else if (LatestAction == "0" || LatestAction == "2" || LatestAction == "3")
+                        {
+                            FriendButton.Text = "Add " + profile.Username + " as Friend";
+                            FriendRejectButton.IsVisible = false;
+                        }
+                    }
+                    else if (ConnectionStatus == "1")
+                    {
+                        FriendButton.Text = "Remove " + profile.Username + "from Friends List";
+                        FriendRejectButton.IsVisible = false;
+                    }
                 }
-                else if (ConnectionStatus == 1) FriendButton.Text = "Remove " + profile.Username + "from Friends List";
+                else if (ConnectionStatus == "0")
+                {
+                    LatestAction = CallGetUserLatestAction(uc.currentUser.ID, profile.ID);
+                    if (LatestAction == "1") FriendButton.Text = "Cancel friend request";
+                    else if (LatestAction == "0" || LatestAction == "2" || LatestAction == "3")
+                        FriendButton.Text = "Add " + profile.Username + " as Friend";
+                    FriendRejectButton.IsVisible = false;
+                }
+                else if (ConnectionStatus == "1")
+                {
+                    FriendButton.Text = "Remove " + profile.Username + " from Friends List";
+                    FriendRejectButton.IsVisible = false;
+                }
             }
         }
 
-        public void FriendButtonClicked(object sender, EventArgs e)
+        private void FriendButtonClicked(object sender, EventArgs e)
         {
-            //return uc.ManageConnection(uc.currentUser, profile, FriendButton, this);
+            if (!uc.ManageConnection(uc.currentUser, profile, FriendButton, FriendRejectButton))
+            {
+                DisplayAlert("", "Error", "Okay");
+            }
+        }
+        private void FriendRejectButtonClicked(object sender, EventArgs e)
+        {
+            if (!uc.ManageConnection(uc.currentUser, profile, FriendRejectButton, FriendButton))
+            {
+                DisplayAlert("", "Error", "Okay");
+            }
         }
 
-        private int CallGetUserConnectionStatus(int User1, int User2)
+        private string CallGetUserConnectionStatus(int User1, int User2)
         {
             return uc.GetUserConnection(User1, User2);
 
         }
 
-        private int CallGetUserLatestAction(int User1, int User2)
+        private string CallGetUserLatestAction(int User1, int User2)
         {
             return uc.GetUserLatestAction(User1, User2);
 

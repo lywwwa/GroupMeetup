@@ -69,7 +69,6 @@ namespace GroupMeetup.Controllers
             List<User> searchResult = new List<User>();
             client = new WebClient();
             string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/searchResult.php?searchQ=" + query));
-            //page.DisplayAlert("",response,"nice");
             string[] user = response.Split('\n');
             User toAdd;
             foreach (string u in user)
@@ -95,27 +94,28 @@ namespace GroupMeetup.Controllers
             return searchResult;
         }
 
-        public int GetUserConnection(int U1, int U2)
+        public string GetUserConnection(int U1, int U2)
         {
             client = new WebClient();
             string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/friendConnection.php?user1=" + U1 +"&user2="+U2));
-            return Convert.ToInt32(response);
+            return response;
         }
 
-        public int GetUserLatestAction(int U1, int U2)
+        public string GetUserLatestAction(int U1, int U2)
         {
             client = new WebClient();
             string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/friendLatestAction.php?user1=" + U1 + "&user2=" + U2));
-            return Convert.ToInt32(response);
+            return response;
         }
 
-        public bool ManageConnection(User U1, User U2, Button Action, ContentPage page)
+        public bool ManageConnection(User U1, User U2, Button Action, Button RejAction)
         {
             string ActionText = "";
             if (Action.Text.Contains("Add")) ActionText = "add";
             else if (Action.Text.Contains("Cancel")) ActionText = "cancel";
             else if (Action.Text.Contains("Remove")) ActionText = "remove";
-
+            else if (Action.Text.Contains("Accept")) ActionText = "accept";
+            else if (Action.Text.Contains("Reject")) ActionText = "reject";
             client = new WebClient();
             string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/manageConnection.php?user1=" + U1.ID + "&user2=" + U2.ID + "&action=" + ActionText));
             if (response == "success")
@@ -128,11 +128,20 @@ namespace GroupMeetup.Controllers
                 {
                     Action.Text = "Add " + U2.Username + " as Friend";
                 }
+                else if (Action.Text.Contains("Accept"))
+                {
+                    Action.Text = "Remove " + U2.Username + "from Friends List";
+                    RejAction.IsVisible = false;
+                }
+                else
+                {
+                    RejAction.Text = "Add " + U2.Username + " as Friend";
+                    Action.IsVisible = false;
+                }
                 return true;
             }
             else
             {
-                page.DisplayAlert("", "Error", "Okay");
                 return false;
             }
         }

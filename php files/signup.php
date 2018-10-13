@@ -1,4 +1,8 @@
 <?php
+$date = new DateTime('now');
+$date->setTimezone(new DateTimeZone('UTC'));
+$fulldate = $date->format('YmdHis');
+
 $con=mysqli_connect("localhost","id6879497_group5app","password12345","id6879497_meetup_app");
 if(isset($_GET['username'])){
     $username = $_GET['username'];
@@ -14,7 +18,7 @@ if(isset($_GET['username'])){
        	$result = mysqli_query($con,"SELECT * FROM tblUser where username='$username'");
        	$row = mysqli_fetch_array($result);
        	if(is_null($row)){
-            $sql =  "INSERT INTO tblUser (username, password, firstName, lastName) VALUES ('$username', '$password', '$firstname', '$lastname')";
+            $sql =  "INSERT INTO tblUser (username, password, firstName, lastName, created_at, updated_at) VALUES ('$username', '$password', '$firstname', '$lastname', $fulldate, $fulldate)";
             if (mysqli_query($con,$sql)){
                 echo "success";
             }

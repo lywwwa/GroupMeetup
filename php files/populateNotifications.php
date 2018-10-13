@@ -8,12 +8,12 @@ if(isset($_GET['id'])){
     }
     else
     {
-       	$result = mysqli_query($con,"SELECT * FROM tblNotifications WHERE user_id = $id AND isDeleted = 0 ORDER BY id DESC");
+       	$result = mysqli_query($con,"SELECT * FROM tblNotifications WHERE user_id = $id AND isDeleted = 0 ORDER BY updated_at DESC");
        	//$row = mysqli_fetch_array($result);
        	//echo $row[1] . "/" . $row[2] . "/" . $row[3];
        	$searchRes = "";
        	while($row = mysqli_fetch_array($result)){
-       	    $searchRes = $searchRes.$row[0] . "/" . $row[1] . "/" . $row[2] . "/" . $row[3] . "/" . $row[4] . "/" . $row[5] . "\n";
+       	    $searchRes = $searchRes.$row[0] . "/" . $row[1] . "/" . $row[2] . "/" . $row[3] . "/" . $row[4] . "/" . $row[5] . $row[6] . $row[7] . $row[8] . "\n";
        	}
        	echo $searchRes;
     }

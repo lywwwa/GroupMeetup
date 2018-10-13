@@ -12,7 +12,7 @@ if(isset($_GET['user1'])){
        	$result = mysqli_query($con,"SELECT * FROM tblConnections where user1_id=$u1 and user2_id=$u2");
        	$row = mysqli_fetch_array($result);
        	if($row != NULL) echo "$row[3]";
-       	else echo "0";
+       	else echo "null";
     }
 }
 else{

@@ -34,10 +34,9 @@ namespace GroupMeetup.Controllers
                     {
                         ID = Convert.ToInt32(eachNotif[0]),
                         UserID = Convert.ToInt32(eachNotif[1]),
-                        NotificationContent = eachNotif[2],
-                        NotificationType = eachNotif[3],
-                        ReadCheck = Convert.ToInt32(eachNotif[4]),
-                        IsDeleted = Convert.ToInt32(eachNotif[5])
+                        GroupID = Convert.ToInt32(eachNotif[2]),
+                        NotificationContent = eachNotif[3],
+                        NotificationType = eachNotif[4],
                     };
                     Notifications.Add(toAdd);
                 }

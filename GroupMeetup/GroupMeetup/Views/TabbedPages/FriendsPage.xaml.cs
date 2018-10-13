@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GroupMeetup.Controllers;
 using GroupMeetup.Models;
+using GroupMeetup.Views;
 
 namespace GroupMeetup.TabbedPages
 {
@@ -33,6 +34,9 @@ namespace GroupMeetup.TabbedPages
             //overlay.IsVisible = false;
         }
 
-        
+        private void FriendsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage(uc, FriendsList.SelectedItem as User));
+        }
     }
 }

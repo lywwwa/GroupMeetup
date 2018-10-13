@@ -22,9 +22,9 @@ namespace GroupMeetup
             currentUser = cUser;
             uc = ucon;
             InitializeComponent();
-
+            
             Children.Add(new TabbedPages.FriendsPage(uc));
-            Children.Add(new TabbedPages.NotificationPage(ucon.currentUser));
+            Children.Add(new TabbedPages.NotificationPage(ucon.currentUser, ucon));
             Children.Add(new TabbedPages.GPSPagexaml());
             Children.Add(new TabbedPages.EventPage());
             NavigationPage.SetHasBackButton(this, false);
@@ -33,7 +33,7 @@ namespace GroupMeetup
 
         public void Account_Clicked(object w,EventArgs args)
         {
-            this.Navigation.PushAsync(new Views.TabbedPages.ProfilePage(uc, currentUser));
+            this.Navigation.PushAsync(new ProfilePage(uc, currentUser));
         }
 
 
