@@ -51,7 +51,8 @@
                 <Button x:Name="LogOutL"
                        Text="Log Out"
                        VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand"/>
+                       HorizontalOptions="CenterAndExpand"
+                        Clicked="LogOutClicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -8,7 +8,6 @@
     <ContentPage.Content >
         <AbsoluteLayout>
             <maps:Map x:Name="gpsMap"
-                      IsShowingUser="true"
                       MapType="Street"
                       AbsoluteLayout.LayoutFlags="SizeProportional"
                       AbsoluteLayout.LayoutBounds="0,0,1.0,1.0"

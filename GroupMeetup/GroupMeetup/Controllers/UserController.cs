@@ -8,6 +8,7 @@ using Mzsoft.BCrypt;
 using Xamarin.Forms;
 using GroupMeetup.Models;
 using System.Diagnostics;
+using GroupMeetup.Views;
 
 namespace GroupMeetup.Controllers
 {
@@ -15,18 +16,39 @@ namespace GroupMeetup.Controllers
     {
         WebClient client;
         public User currentUser;
-        public void Login(string username, string password, LoginPage login)
+        public void Login(string username, string password, string DeviceSerial, LoginPage login)
         {
             client = new WebClient();
             password = Sha256(password, login);
-            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/login.php?username=" + username + "&password=" + password));
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/login.php?username=" + username + "&password=" + password + "&deviceserial=" + DeviceSerial));
             Trace.WriteLine(response);
             if (response == "success")
             {
                 currentUser = GetUserData(username, login);
                 login.Navigation.PushAsync(new HomePage(this, currentUser));
             }
-            else login.DisplayAlert("Invalid credentials", "Username or password is incorrect.", "Try again");
+            else if (response == "loggedin")
+            {
+                login.DisplayAlert("Error", "You are logged in to another device. Log out from other devices and try again.", "Okay");
+            }
+            else if (response == "invalid") login.DisplayAlert("Invalid credentials", "Username or password is incorrect.", "Try again");
+            else login.DisplayAlert("php error??", response, "Try again");
+
+        }
+
+        public void Logout(int UID, ProfilePage PPage)
+        {
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/logout.php?id=" + UID));
+            Trace.WriteLine(response);
+            if (response == "success")
+            {
+                PPage.Navigation.PopToRootAsync();
+            }
+            else
+            {
+                PPage.DisplayAlert("Error", response, "Try again");
+            }
 
         }
 

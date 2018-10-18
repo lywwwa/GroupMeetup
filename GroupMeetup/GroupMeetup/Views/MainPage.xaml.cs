@@ -11,6 +11,7 @@ namespace GroupMeetup
 	{
 		public MainPage()
 		{
+
 			InitializeComponent();
 		}
 	}

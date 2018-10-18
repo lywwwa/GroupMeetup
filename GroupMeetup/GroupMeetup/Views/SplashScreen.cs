@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 using Xamarin.Forms;
 using GroupMeetup.Controllers;
+using System.Diagnostics;
 
 namespace GroupMeetup
 {
@@ -33,6 +34,7 @@ namespace GroupMeetup
 
             this.BackgroundColor = Color.FromHex("#00313c");
             this.Content = sub;
+
         }
 
 

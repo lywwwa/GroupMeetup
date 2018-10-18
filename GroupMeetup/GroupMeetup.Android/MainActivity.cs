@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Android;
 using Android.App;
@@ -8,6 +9,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+
+using Xamarin.Forms;
 
 namespace GroupMeetup.Droid
 {
@@ -39,45 +42,50 @@ namespace GroupMeetup.Droid
 
 
         }
-        const int RequestLocationId = 0;
+        const int RequestId = 0;
 
-        readonly string[] PermissionsGroupLocation ={
+        readonly string[] PermissionsGroup ={
             //TODO add more permissions
             Manifest.Permission.AccessCoarseLocation,
             Manifest.Permission.AccessFineLocation,
+            Manifest.Permission.ReadExternalStorage,
+            Manifest.Permission.WriteExternalStorage
         };
+
         async Task GetPermissionsAsync()
         {
-            const string permission = Manifest.Permission.AccessFineLocation;
+            const string permissionCoarseLocation = Manifest.Permission.AccessCoarseLocation;
+            const string permissionFineLocation = Manifest.Permission.AccessFineLocation;
+            const string permissionReadExternal = Manifest.Permission.ReadExternalStorage;
+            const string permissionWriteExternal = Manifest.Permission.WriteExternalStorage;
 
-            if (CheckSelfPermission(permission) == (int)Android.Content.PM.Permission.Granted)
+            if (CheckSelfPermission(permissionCoarseLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionFineLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionReadExternal) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionWriteExternal) == (int)Android.Content.PM.Permission.Granted)
             {
                 //TODO change the message to show the permissions name
-                Toast.MakeText(this, "Location permissions granted", ToastLength.Short).Show();
+                Toast.MakeText(this, "Permissions already granted: "+Build.Serial, ToastLength.Long).Show();
                 return;
             }
-            
-            if (ShouldShowRequestPermissionRationale(permission))
-            {
-                RequestPermissions(PermissionsGroupLocation, RequestLocationId);
-            }
 
+            if (ShouldShowRequestPermissionRationale(permissionCoarseLocation) || ShouldShowRequestPermissionRationale(permissionFineLocation) || ShouldShowRequestPermissionRationale(permissionReadExternal) || ShouldShowRequestPermissionRationale(permissionWriteExternal))
+            {
+                RequestPermissions(PermissionsGroup, RequestId);
+            }
         }
 
         void OnRequestPermissionsResult(int requestCode, string[] permissions, int[] grantResults)
         {
             switch (requestCode)
             {
-                case RequestLocationId:
+                case RequestId:
                     {
                         if (grantResults[0] == (int)Android.Content.PM.Permission.Granted)
                         {
-                            Toast.MakeText(this, "Special permissions granted", ToastLength.Short).Show();
+                            Toast.MakeText(this, "Permissions granted", ToastLength.Long).Show();
                         }
                         else
                         {
                             //Permission Denied :(
-                            Toast.MakeText(this, "Location permission denied, exiting", ToastLength.Long).Show();
+                            Toast.MakeText(this, "Permissions denied, exiting", ToastLength.Long).Show();
                             killApp(2000);
                         }
                     }
@@ -91,7 +99,7 @@ namespace GroupMeetup.Droid
         async void killApp(int milli)
         {
             await Task.Delay(milli);
-            Process.KillProcess(Process.MyPid());
+            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
         }
     }
 }

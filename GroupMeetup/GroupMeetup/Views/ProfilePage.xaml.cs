@@ -103,5 +103,10 @@ namespace GroupMeetup.Views
             return uc.GetUserLatestAction(User1, User2);
 
         }
+
+        private void LogOutClicked(object sender, EventArgs e)
+        {
+            uc.Logout(uc.currentUser.ID, this);
+        }
     }
 }
