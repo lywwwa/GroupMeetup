@@ -28,6 +28,8 @@ namespace GroupMeetup
             Children.Add(new TabbedPages.GPSPagexaml());
             Children.Add(new TabbedPages.EventPage());
             NavigationPage.SetHasBackButton(this, false);
+            //
+            NavigationPage.SetHasNavigationBar(this, false);
             this.BarBackgroundColor = Color.FromHex("#392c4b");
         }
 

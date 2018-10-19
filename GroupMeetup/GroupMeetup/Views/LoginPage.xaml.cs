@@ -26,7 +26,8 @@ namespace GroupMeetup
 		{
             InitializeComponent();
             uc = new UserController();
-            this.BackgroundColor = Color.FromHex("#00313c");
+            //
+            this.BackgroundColor = Color.FromHex("#01a1ff");
             NavigationPage.SetHasNavigationBar(this, false);
             DeviceSerial = DependencyService.Get<IDeviceSerial>().getDeviceSerial();
         }
