@@ -3,21 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.FriendsPage"
              Title="Friends"
-             BackgroundColor="AntiqueWhite">
+             BackgroundColor="#01a1ff">
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout 
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
                 AbsoluteLayout.LayoutFlags="All">
 
-                <ListView x:Name="FriendsList" x:FieldModifier="public" ItemTapped="FriendsList_ItemTapped">
+                <ListView x:Name="FriendsList" x:FieldModifier="public" ItemTapped="FriendsList_ItemTapped" BackgroundColor="White">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell Height="60">
                                 <StackLayout Orientation="Horizontal">
                                     <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
                                     <StackLayout Orientation="Vertical" Margin="5,5,10,5">
-                                        <Label Text="{Binding Username}"/>
+                                        <Label Text="{Binding Username}" FontSize="Medium" FontAttributes="Bold" TextColor="#01a1ff"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -34,7 +34,7 @@
                     Clicked="OnButtonClicked"
                     WidthRequest="60" 
                     HeightRequest="60" 
-                    BorderRadius="40"
+                    BorderRadius="30"
                    
                     />
 

@@ -30,7 +30,7 @@ namespace GroupMeetup
             NavigationPage.SetHasBackButton(this, false);
             //
             NavigationPage.SetHasNavigationBar(this, false);
-            this.BarBackgroundColor = Color.FromHex("#392c4b");
+            this.BarBackgroundColor = Color.FromHex("#01a1ff");
         }
 
         public void Account_Clicked(object w,EventArgs args)
@@ -39,16 +39,9 @@ namespace GroupMeetup
         }
 
 
-       /* public void OnButtonClicked(object a, EventArgs e)
-        {
-            this.Navigation.PushAsync(new Views.SearchPage(uc));
-        }*/
-
         public void Logout_Clicked(object obj, EventArgs a)
         {
-            //this.Navigation.PushAsync(new LoginPage());
-            // this.Navigation.RemovePage(this);
-            //remove all info
+            
         }
 
     }

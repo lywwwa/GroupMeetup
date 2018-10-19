@@ -3,21 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.EventPage"
              Icon="event_logo.png"
-             BackgroundColor="White">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Event" Icon="add_logo.png" Clicked="NewEvent_Clicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+             BackgroundColor="#01a1ff">
+    
 
     <ContentPage.Content>
 
         <AbsoluteLayout>
-
-  
-
-            <ListView x:Name="MeetingsListView" >
+            <ListView x:Name="MeetingsListView" BackgroundColor="White" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Subject}" Detail="{Binding Location.DisplayName}"></TextCell>
+                        <TextCell Text="{Binding Subject}" Detail="{Binding Location.DisplayName}" TextColor="#01a1ff"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

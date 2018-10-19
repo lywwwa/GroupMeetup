@@ -3,23 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.AdditionalPages.AddEventPage"
              xmlns:places="clr-namespace:DurianCode.PlacesSearchBar;assembly=PlacesSearchBar"
-             Title="Add New Event">
+             Title="Add New Event"
+             BackgroundColor="#01a1ff">
     <ContentPage.Content>
         <StackLayout Spacing="10">
             <Entry x:Name="Subject" 
-                   Placeholder="Subject"/>
+                   Placeholder="Subject"
+                   BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
  
             <StackLayout Orientation="Horizontal">
 
-                <DatePicker x:Name="StartDate"/>
-                <TimePicker x:Name="StartTime"/>
+                <DatePicker x:Name="StartDate" BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
+                <TimePicker x:Name="StartTime" BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
                 
             </StackLayout>
             
             <StackLayout Orientation="Horizontal">
-                
-                <DatePicker x:Name="EndDate"/>
-                <TimePicker x:Name="EndTime"/>
+
+                <DatePicker x:Name="EndDate" BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
+                <TimePicker x:Name="EndTime" BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
                 
             </StackLayout>
 
@@ -27,21 +34,19 @@
             <AbsoluteLayout>
                 <ActivityIndicator x:Name="spinner" IsRunning="false"
 				AbsoluteLayout.LayoutBounds="0.5, 0.1, 50, 50" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                <ListView x:Name="results_list" IsVisible="false"
+                <ListView x:Name="results_list" IsVisible="false" BackgroundColor="White"
 				AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="SizeProportional" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Description}" Detail="{Binding Place_ID}" />
+                            <TextCell Text="{Binding Description}" Detail="{Binding Place_ID}" TextColor="#01a1ff"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </AbsoluteLayout>
-            <Entry x:Name="Attendee" Placeholder="Attendee"/>
+            <Entry x:Name="Attendee" Placeholder="Attendee" BackgroundColor=" #13a3f9"
+                       TextColor="White"/>
        
         </StackLayout>
     </ContentPage.Content>
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+   
 </ContentPage>

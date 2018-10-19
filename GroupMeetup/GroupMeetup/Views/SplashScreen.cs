@@ -32,7 +32,7 @@ namespace GroupMeetup
 
             sub.Children.Add(splashImage);
 
-            this.BackgroundColor = Color.FromHex("#00313c");
+            this.BackgroundColor = Color.FromHex("#01a1ff");
             this.Content = sub;
 
         }

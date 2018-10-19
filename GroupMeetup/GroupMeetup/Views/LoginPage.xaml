@@ -30,7 +30,7 @@
                        AbsoluteLayout.LayoutFlags="All"
                        x:Name="passwordField"
                        />
-                <Button Text="Log in"
+                <Button Text="LOGIN"
                         BackgroundColor="#ffffff"
                         TextColor="#01a1ff"
                         AbsoluteLayout.LayoutBounds=".5,.85,.85,.30"
@@ -42,13 +42,11 @@
 
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
-                <Grid>
+ 
                     <Label Text="Sign Up"
                        TextColor="#ffffff"
-                       Grid.Row="0" 
-                       Grid.Column="0"
-                           Grid.ColumnSpan="2"
-                           Grid.RowSpan="2"
+                      FontSize="Medium"
+                           FontAttributes="Bold"
                        XAlign="Center"
                        x:Name="signup">
                         <Label.GestureRecognizers>
@@ -70,7 +68,7 @@
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>-->
-                </Grid>
+               
             </StackLayout>
 
         </StackLayout>

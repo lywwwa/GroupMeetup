@@ -18,7 +18,8 @@ namespace GroupMeetup.Views
         public SearchPage (UserController ucon)
 		{
             uc = ucon;
-			InitializeComponent ();
+            this.BackgroundColor = Color.FromHex("#01a1ff");
+            InitializeComponent ();
 		}
 
         public void SearchClicked(object add, EventArgs evv)
@@ -35,6 +36,7 @@ namespace GroupMeetup.Views
                 {
                     Text = "Name: " + u.FirstName + " " + u.LastName + "\nUsername: " + u.Username,
                     FontSize = 20,
+                    TextColor = Color.FromHex("#01a1ff")
 
                     //userID = Convert.ToInt32(u.ID)
                 };
