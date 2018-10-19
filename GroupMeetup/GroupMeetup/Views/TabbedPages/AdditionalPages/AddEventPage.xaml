@@ -52,12 +52,4 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="EventAddUpdate" Text="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
-=======
-            <Entry x:Name="Attendee" Placeholder="Attendee" BackgroundColor=" #13a3f9"
-                       TextColor="White"/>
-       
-        </StackLayout>
-    </ContentPage.Content>
-   
->>>>>>> 1a58293b50830e05beaa09c0f6d8de6d91efd392
 </ContentPage>
