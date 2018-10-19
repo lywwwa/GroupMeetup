@@ -18,7 +18,8 @@ namespace GroupMeetup
 		{
             uc = ucon;
 			InitializeComponent ();
-            this.BackgroundColor = Color.FromHex("#00313c");
+            //
+            this.BackgroundColor = Color.FromHex("#01a1ff");
         }
 
         private void SignUpButtonClicked(object sender, EventArgs e)

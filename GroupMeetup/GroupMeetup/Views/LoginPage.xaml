@@ -15,8 +15,8 @@
 
                 <Entry Text="{Binding Username}"
                        Placeholder="Username"
-                       BackgroundColor="#e4e2de"
-                       TextColor="Black"
+                       BackgroundColor=" #13a3f9"
+                       TextColor="White"
                        AbsoluteLayout.LayoutBounds=".5,0,.83,.25" 
                         AbsoluteLayout.LayoutFlags="All"
                        x:Name="usernameField"
@@ -24,26 +24,31 @@
                 <Entry Text="{Binding Password}"
                        Placeholder="Password"
                        IsPassword="True"
-                       BackgroundColor="#e4e2de"
-                       TextColor="Black"
+                       BackgroundColor=" #13a3f9"
+                       TextColor="White"
            AbsoluteLayout.LayoutBounds=".5,.40,.83,.25"
                        AbsoluteLayout.LayoutFlags="All"
                        x:Name="passwordField"
                        />
                 <Button Text="Log in"
-                        BackgroundColor="#72275b"
-                        TextColor="AntiqueWhite"
+                        BackgroundColor="#ffffff"
+                        TextColor="#01a1ff"
                         AbsoluteLayout.LayoutBounds=".5,.85,.85,.30"
                         AbsoluteLayout.LayoutFlags="All"
+                         WidthRequest="70"
+                        HeightRequest="50"
+                        BorderRadius="25"
                         Clicked="LoginClicked"/>
 
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
                 <Grid>
                     <Label Text="Sign Up"
-                       TextColor="AntiqueWhite"
+                       TextColor="#ffffff"
                        Grid.Row="0" 
                        Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.RowSpan="2"
                        XAlign="Center"
                        x:Name="signup">
                         <Label.GestureRecognizers>
@@ -53,7 +58,7 @@
                         </Label.GestureRecognizers>
                     </Label>
                     
-                    <Label Text="Forgot Password?" 
+                  <!--<Label Text="Forgot Password?" 
                         TextColor="AntiqueWhite"
                        Grid.Row="0" 
                        Grid.Column="1"
@@ -64,7 +69,7 @@
                                 Tapped="TappedHandler"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
-                    </Label>
+                    </Label>-->
                 </Grid>
             </StackLayout>
 
