@@ -1,0 +1,4 @@
+-Create event
+-Search place
+-Invite friends
+-Realtime Map Location
