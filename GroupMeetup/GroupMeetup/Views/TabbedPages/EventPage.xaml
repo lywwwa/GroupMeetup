@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GroupMeetup.TabbedPages.EventPage"
              Icon="event_logo.png"
-             BackgroundColor="White">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Event" Icon="add_logo.png" Clicked="NewEvent_Clicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+             BackgroundColor="#01a1ff">
+    
 
     <ContentPage.Content>
         <AbsoluteLayout>

@@ -4,15 +4,24 @@
              x:Class="GroupMeetup.Views.SearchPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout Padding="0,20,0,0">
+                <Label Text="SEARCH USERNAME" TextColor="White" FontAttributes="Bold" FontSize="Medium" XAlign="Center"/>
+                
                 <Entry x:Name="usernameSearch"
                        Placeholder="Search for username"/>
 
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Search"
-                            Clicked="SearchClicked"/>
+                            Clicked="SearchClicked"
+                            FontSize="Medium"
+                           FontAttributes="Bold"
+                              BackgroundColor="#ffffff"
+                        TextColor="#01a1ff"
+                             WidthRequest="70"
+                        HeightRequest="50"
+                        BorderRadius="25"/>
                 </StackLayout>
-                <StackLayout x:Name="results">
+                <StackLayout x:Name="results" BackgroundColor="White">
                     
                 </StackLayout>
             </StackLayout>
