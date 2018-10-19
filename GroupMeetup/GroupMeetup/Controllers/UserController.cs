@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using GroupMeetup.Models;
 using System.Diagnostics;
 using GroupMeetup.Views;
+using System.Threading.Tasks;
 
 namespace GroupMeetup.Controllers
 {
@@ -16,7 +17,7 @@ namespace GroupMeetup.Controllers
     {
         WebClient client;
         public User currentUser;
-        public void Login(string username, string password, string DeviceSerial, LoginPage login)
+        public void Login(string username, string password, string DeviceSerial, LoginPage login, GroupController gc)
         {
             client = new WebClient();
             password = Sha256(password, login);
@@ -25,11 +26,15 @@ namespace GroupMeetup.Controllers
             if (response == "success")
             {
                 currentUser = GetUserData(username, login);
-                login.Navigation.PushAsync(new HomePage(this, currentUser));
+                login.Navigation.PushAsync(new HomePage(this, gc));
             }
             else if (response == "loggedin")
             {
                 login.DisplayAlert("Error", "You are logged in to another device. Log out from other devices and try again.", "Okay");
+            }
+            else if (response == "anotheruser")
+            {
+                login.DisplayAlert("Error", "This device is used by another user session. Log in with that user, log out and try again.", "Okay");
             }
             else if (response == "invalid") login.DisplayAlert("Invalid credentials", "Username or password is incorrect.", "Try again");
             else login.DisplayAlert("php error??", response, "Try again");
@@ -86,6 +91,24 @@ namespace GroupMeetup.Controllers
             return udata;
         }
 
+        public User GetUserDataById(int id)
+        {
+            User udata = new User();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/getUserDataById.php?id=" + id));
+            string[] wow = response.Split('/');
+            foreach(string w in wow)
+            {
+                if(w != "")
+                {
+                    udata.ID = Convert.ToInt32(wow[0]);
+                    udata.FirstName = wow[1];
+                    udata.LastName = wow[2];
+                    udata.Username = wow[3];
+                }
+            }
+            return udata;
+        }
+
         public List<User> SearchUsers(string query, ContentPage page)
         {
             List<User> searchResult = new List<User>();
@@ -114,6 +137,79 @@ namespace GroupMeetup.Controllers
 
             //return searchResultString;
             return searchResult;
+        }
+
+        public async Task<List<User>> GetFriends(int id)
+        {
+            List<User> FriendsList = new List<User>();
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/populateFriends.php?id=" + id));
+            string[] Friends = response.Split('\n');
+            User toAdd;
+            if (response != "none")
+            {
+                foreach (string u in Friends)
+                {
+                    string[] eachUser = u.Split('/');
+                    if (u != "")
+                    {
+                        toAdd = new User
+                        {
+                            ID = Convert.ToInt32(eachUser[0]),
+                            FirstName = eachUser[1],
+                            LastName = eachUser[2],
+                            Username = eachUser[3]
+                        };
+                        FriendsList.Add(toAdd);
+                    }
+                }
+                return FriendsList;
+            }
+            else return null;
+        }
+
+        public async Task<List<int>> GetGroupMembers(int GroupId)
+        {
+            List<int> MembersList = new List<int>();
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/populateMembers.php?id=" + GroupId));
+            if (response != "none")
+            {
+                Trace.WriteLine("response: " + response);
+                string[] Friends = response.Split('\n');
+                foreach (string f in Friends)
+                {
+                    if(int.TryParse(f, out int o)) MembersList.Add(o);
+                }
+                return MembersList;
+            }
+            else
+            {
+                Trace.WriteLine("responsen: " + response);
+                return null;
+            }
+        }
+
+        public async Task<List<int>> GetGroupMembersArrived(int GroupId)
+        {
+            List<int> ArrivedMembers = new List<int>();
+            client = new WebClient();
+            string response = client.DownloadString(new Uri("https://meetup-app.000webhostapp.com/getArrivedMembers.php?id=" + GroupId));
+            if (response != "none")
+            {
+                Trace.WriteLine("response: " + response);
+                string[] Friends = response.Split('\n');
+                foreach (string f in Friends)
+                {
+                    if (int.TryParse(f, out int o)) ArrivedMembers.Add(o);
+                }
+                return ArrivedMembers;
+            }
+            else
+            {
+                Trace.WriteLine("responsen: " + response);
+                return null;
+            }
         }
 
         public string GetUserConnection(int U1, int U2)

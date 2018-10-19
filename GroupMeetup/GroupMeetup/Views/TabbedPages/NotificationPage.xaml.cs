@@ -20,10 +20,12 @@ namespace GroupMeetup.TabbedPages
     {
         NotificationController nc;
         UserController uc;
+        GroupController gc;
 
-        public NotificationPage(User user, UserController ucon)
+        public NotificationPage(User user, UserController ucon, GroupController gcon)
 		{
             uc = ucon;
+            gc = gcon;
             nc = new NotificationController();
 			InitializeComponent ();
             List<Notification> NotifList = nc.PopulateNotifications(this, user.ID);
@@ -34,11 +36,20 @@ namespace GroupMeetup.TabbedPages
         private void NotificationsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Notification SelectedNotification = NotificationsList.SelectedItem as Notification;
-            string[] UNameExtract = SelectedNotification.NotificationContent.Split(' ');
-            string UserNotifSenderName = UNameExtract[0];
-            User UserNotifSender = uc.GetUserData(UserNotifSenderName, this);
-            Trace.WriteLine(UserNotifSender.Username);
-            Navigation.PushAsync(new ProfilePage(uc, UserNotifSender));
+            if (SelectedNotification.NotificationType == "request")
+            {
+                string[] UNameExtract = SelectedNotification.NotificationContent.Split(' ');
+                string UserNotifSenderName = UNameExtract[0];
+                User UserNotifSender = uc.GetUserData(UserNotifSenderName, this);
+                Trace.WriteLine(UserNotifSender.Username);
+                Navigation.PushAsync(new ProfilePage(uc, UserNotifSender));
+            }
+            if (SelectedNotification.NotificationType == "invite")
+            {
+                Navigation.PushAsync(new EventPage(uc, gc));
+            }
+
+
         }
 
         

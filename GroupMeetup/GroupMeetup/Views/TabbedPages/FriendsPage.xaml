@@ -39,7 +39,7 @@
                     />
 
             </StackLayout>
-
+            <Button Text="Refresh Friends List" Clicked="FriendRefresh_Clicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.01,0.99,100,50"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

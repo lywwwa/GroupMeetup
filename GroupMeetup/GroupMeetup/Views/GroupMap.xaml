@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="GroupMeetup.Views.GroupMap">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <maps:Map x:Name="gpsMap"
+                      MapType="Street"
+                      IsShowingUser = "True"
+                      AbsoluteLayout.LayoutFlags="All"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1"
+            />
+            <Button Text="Members" Clicked="MemberButton_Clicked" AbsoluteLayout.LayoutBounds="0,0,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"></Button>
+
+            <ContentView x:Name="MembersOverlay" 
+                                     x:FieldModifier="public"
+                                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                                     AbsoluteLayout.LayoutFlags="All" 
+                                     Padding="10, 0"
+                                     IsVisible="false">
+                <StackLayout Padding="10" BackgroundColor="#8CCDC2" HorizontalOptions="Center" VerticalOptions="Center">
+                    <!--<Label x:Name="LabelSelectItem" 
+                                       TextColor="#FAEBDO"
+                                       HorizontalOptions="Center"/>-->
+                    <StackLayout Orientation="Vertical">
+                        <ListView x:Name="MembersList" ItemSelected="ListView_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Height="30">
+                                        <StackLayout Orientation="Horizontal">
+                                            <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
+                                            <StackLayout Orientation="Vertical" Margin="5,5,10,5">
+                                                <Label Text="{Binding Username}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button Text="Close" Clicked="CloseButton_Clicked" ></Button>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

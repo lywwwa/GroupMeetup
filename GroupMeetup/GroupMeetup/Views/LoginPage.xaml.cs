@@ -21,11 +21,13 @@ namespace GroupMeetup
 	public partial class LoginPage : ContentPage
 	{
         UserController uc;
+        GroupController gc;
         string DeviceSerial;
         public LoginPage ()
 		{
             InitializeComponent();
             uc = new UserController();
+            gc = new GroupController();
             this.BackgroundColor = Color.FromHex("#00313c");
             NavigationPage.SetHasNavigationBar(this, false);
             DeviceSerial = DependencyService.Get<IDeviceSerial>().getDeviceSerial();
@@ -33,7 +35,8 @@ namespace GroupMeetup
 
         private void LoginClicked(object sender, EventArgs e)
         {
-            uc.Login(usernameField.Text, passwordField.Text, DeviceSerial, this);
+            if (!string.IsNullOrEmpty(usernameField.Text) && !string.IsNullOrEmpty(passwordField.Text)) uc.Login(usernameField.Text, passwordField.Text, DeviceSerial, this, gc);
+            else DisplayAlert("Error", "Fields cannot be blank.", "Try again");
         }
 
 

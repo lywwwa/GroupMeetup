@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Android.Webkit;
 using System;
 
+using Android.OS;
+
 [assembly: Dependency(typeof(GroupMeetup.Droid.DeviceSerial))]
 namespace GroupMeetup.Droid
 {
@@ -10,7 +12,8 @@ namespace GroupMeetup.Droid
     {
         public string getDeviceSerial()
         {
-            return Android.OS.Build.Serial;
+            if ((int)Build.VERSION.SdkInt < 26) return Android.OS.Build.Serial;
+            else return Build.GetSerial();
         }
     }
 }

@@ -16,12 +16,20 @@ namespace GroupMeetup.TabbedPages
 	public partial class FriendsPage : ContentPage
 	{
         UserController uc;
+        List<User> Friends;
 		public FriendsPage (UserController ucon)
 		{
             uc = ucon;
             InitializeComponent ();
-            
+
+            GetFriends();
             //overlay.IsVisible = false;
+        }
+
+        public async void GetFriends()
+        {
+            Friends = await uc.GetFriends(uc.currentUser.ID);
+            FriendsList.ItemsSource = Friends;
         }
 
         public void OnButtonClicked(object a, EventArgs e)
@@ -37,6 +45,11 @@ namespace GroupMeetup.TabbedPages
         private void FriendsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Navigation.PushAsync(new ProfilePage(uc, FriendsList.SelectedItem as User));
+        }
+
+        private void FriendRefresh_Clicked(object sender, EventArgs e)
+        {
+            GetFriends();
         }
     }
 }

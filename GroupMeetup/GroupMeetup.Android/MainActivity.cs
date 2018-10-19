@@ -49,7 +49,8 @@ namespace GroupMeetup.Droid
             Manifest.Permission.AccessCoarseLocation,
             Manifest.Permission.AccessFineLocation,
             Manifest.Permission.ReadExternalStorage,
-            Manifest.Permission.WriteExternalStorage
+            Manifest.Permission.WriteExternalStorage,
+            Manifest.Permission.ReadPhoneState
         };
 
         async Task GetPermissionsAsync()
@@ -58,15 +59,16 @@ namespace GroupMeetup.Droid
             const string permissionFineLocation = Manifest.Permission.AccessFineLocation;
             const string permissionReadExternal = Manifest.Permission.ReadExternalStorage;
             const string permissionWriteExternal = Manifest.Permission.WriteExternalStorage;
+            const string permissionPhoneState = Manifest.Permission.ReadPhoneState;
 
-            if (CheckSelfPermission(permissionCoarseLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionFineLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionReadExternal) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionWriteExternal) == (int)Android.Content.PM.Permission.Granted)
+            if (CheckSelfPermission(permissionPhoneState) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionCoarseLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionFineLocation) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionReadExternal) == (int)Android.Content.PM.Permission.Granted || CheckSelfPermission(permissionWriteExternal) == (int)Android.Content.PM.Permission.Granted)
             {
                 //TODO change the message to show the permissions name
-                Toast.MakeText(this, "Permissions already granted: "+Build.Serial, ToastLength.Long).Show();
+                Toast.MakeText(this, "Permissions already granted.", ToastLength.Long).Show();
                 return;
             }
 
-            if (ShouldShowRequestPermissionRationale(permissionCoarseLocation) || ShouldShowRequestPermissionRationale(permissionFineLocation) || ShouldShowRequestPermissionRationale(permissionReadExternal) || ShouldShowRequestPermissionRationale(permissionWriteExternal))
+            if (ShouldShowRequestPermissionRationale(permissionPhoneState) || ShouldShowRequestPermissionRationale(permissionCoarseLocation) || ShouldShowRequestPermissionRationale(permissionFineLocation) || ShouldShowRequestPermissionRationale(permissionReadExternal) || ShouldShowRequestPermissionRationale(permissionWriteExternal))
             {
                 RequestPermissions(PermissionsGroup, RequestId);
             }
@@ -103,4 +105,3 @@ namespace GroupMeetup.Droid
         }
     }
 }
-

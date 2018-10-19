@@ -23,6 +23,7 @@
                 
             </StackLayout>
 
+            <Label x:Name="LocationName" ></Label>
             <places:PlacesBar x:Name="search_bar"></places:PlacesBar>
             <AbsoluteLayout>
                 <ActivityIndicator x:Name="spinner" IsRunning="false"
@@ -31,17 +32,17 @@
 				AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="SizeProportional" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Description}" Detail="{Binding Place_ID}" />
+                            <!--<TextCell Text="{Binding Description}" Detail="{Binding Place_ID}" />-->
+                            <TextCell Text="{Binding Description}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </AbsoluteLayout>
-            <Entry x:Name="Attendee" Placeholder="Attendee"/>
-       
+
         </StackLayout>
     </ContentPage.Content>
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
+        <ToolbarItem x:Name="EventAddUpdate" Text="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 </ContentPage>

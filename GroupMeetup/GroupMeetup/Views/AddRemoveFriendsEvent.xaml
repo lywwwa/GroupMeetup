@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroupMeetup.Views.AddRemoveFriendsEvent">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add/Remove Friends"/>
+            <ListView x:Name="FriendsList"
+                          x:FieldModifier="public"
+                          AbsoluteLayout.LayoutFlags="All"
+                          AbsoluteLayout.LayoutBounds="0, 0.1, 1, 0.4"
+                          ItemTapped="Friend_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="30">
+                            <StackLayout Orientation="Horizontal">
+                                <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
+                                <StackLayout Orientation="Vertical" Margin="5,5,10,5">
+                                    <Label Text="{Binding Username, StringFormat='Username: {0}'}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
