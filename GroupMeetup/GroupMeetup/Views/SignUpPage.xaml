@@ -40,12 +40,7 @@
                           
                        />
 
-                    <!-- <Entry Text="{Binding MiddleName}"
-                           Placeholder="Middle Name"
-                           x:Name="firstNameField"
-                           TextColor="AntiqueWhite"
-                           Grid.Row="1" Grid.Column="1"                        
-                           /> -->
+                   
 
                     <Entry Text="{Binding LastName}"
                            Placeholder="Last Name"
@@ -55,14 +50,7 @@
                            Grid.Row="1" Grid.Column="1"
                            />
 
-                    <!-- <Entry Text="{Binding Email}"
-                           Placeholder="Email"
-                           Keyboard="Email"
-                       
-                          TextColor="AntiqueWhite"
-                         Grid.Row="3" Grid.Column="1"
-                           />
-                    -->
+                   
                     <Entry Text="{Binding Username}"
                            x:Name="usernameSignup"
                            Placeholder="Username"

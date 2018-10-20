@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             x:Class="GroupMeetup.Views.GroupMap">
+             x:Class="GroupMeetup.Views.GroupMap"
+             BackgroundColor="#01a1ff">
     <ContentPage.Content>
         <AbsoluteLayout>
             <maps:Map x:Name="gpsMap"
@@ -11,7 +12,9 @@
                       AbsoluteLayout.LayoutFlags="All"
                       AbsoluteLayout.LayoutBounds="0,0,1,1"
             />
-            <Button Text="Members" Clicked="MemberButton_Clicked" AbsoluteLayout.LayoutBounds="0,0,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"></Button>
+            <Button Text="Members" Clicked="MemberButton_Clicked" AbsoluteLayout.LayoutBounds="0,0,100,50" AbsoluteLayout.LayoutFlags="PositionProportional" WidthRequest="80" 
+                    HeightRequest="60" 
+                    BorderRadius="30"></Button>
 
             <ContentView x:Name="MembersOverlay" 
                                      x:FieldModifier="public"
@@ -30,8 +33,8 @@
                                     <ViewCell Height="30">
                                         <StackLayout Orientation="Horizontal">
                                             <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
-                                            <StackLayout Orientation="Vertical" Margin="5,5,10,5">
-                                                <Label Text="{Binding Username}"/>
+                                            <StackLayout Orientation="Vertical" Margin="5,5,10,5" BackgroundColor="White">
+                                                <Label Text="{Binding Username}" FontSize="Medium" FontAttributes="Bold" TextColor="#01a1ff"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </ViewCell>

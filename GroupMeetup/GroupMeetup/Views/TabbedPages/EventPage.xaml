@@ -19,10 +19,10 @@
                             <ViewCell Height="30">
                                 <StackLayout Orientation="Horizontal">
                                     <!--<BoxView BackgroundColor="Blue" WidthRequest="10" Margin="0,0,0,10" />-->
-                                    <StackLayout Orientation="Vertical" Margin="5,5,10,5">
-                                        <Label Text="{Binding Name, StringFormat='Subject: {0}'}"/>
-                                        <Label Text="{Binding MeetupLocation, StringFormat='Where: {0}'}"/>
-                                        <Label Text="{Binding MeetupDateTime, StringFormat='When: {0}'}"/>
+                                    <StackLayout Orientation="Vertical" Margin="5,5,10,5" BackgroundColor="White">
+                                        <Label Text="{Binding Name, StringFormat='Subject: {0}'}" FontAttributes="Bold" FontSize="Medium" TextColor="#01a1ff" />
+                                        <Label Text="{Binding MeetupLocation, StringFormat='Where: {0}'}" TextColor="#01a1ff"/>
+                                        <Label Text="{Binding MeetupDateTime, StringFormat='When: {0}'}" TextColor="#01a1ff"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -65,15 +65,24 @@
                                        HorizontalOptions="Center"/>-->
                     <StackLayout Orientation="Vertical">
                         <Button Text="View Map"
-                                    Clicked="ViewMapLead_Clicked"/>
+                                    Clicked="ViewMapLead_Clicked"
+                                WidthRequest="60" 
+                    HeightRequest="60" 
+                    BorderRadius="30"/>
                         <Button Text="Add/Remove Participants"
                                     Clicked="AddRemove_Clicked"/>
                         <Button Text="Edit Event"
-                                    Clicked="Edit_Clicked"/>
+                                    Clicked="Edit_Clicked"
+                                WidthRequest="60" 
+                    HeightRequest="60" 
+                    BorderRadius="30"/>
                         <!--<Button Text="Cancel Event"
                                     Clicked="Cancel_Clicked"/> -->
                         <Button Text="Close"
-                                    Clicked="Close_Clicked"/>
+                                    Clicked="Close_Clicked"
+                                WidthRequest="60" 
+                    HeightRequest="60" 
+                    BorderRadius="30"/>
                     </StackLayout>
                 </StackLayout>
             </ContentView>

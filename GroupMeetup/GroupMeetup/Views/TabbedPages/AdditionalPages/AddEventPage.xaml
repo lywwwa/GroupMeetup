@@ -11,7 +11,7 @@
                    Placeholder="Subject"
                    BackgroundColor=" #13a3f9"
                        TextColor="White"/>
- 
+
             <StackLayout Orientation="Horizontal">
 
                 <DatePicker x:Name="StartDate" BackgroundColor=" #13a3f9"

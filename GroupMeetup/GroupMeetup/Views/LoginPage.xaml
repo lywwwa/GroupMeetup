@@ -4,7 +4,8 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="GroupMeetup.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <StackLayout>
             <StackLayout Padding="0,80,0,0">
                 <Image Source="logo.png"
                        WidthRequest = "100"
@@ -42,35 +43,25 @@
 
             </AbsoluteLayout>
             <StackLayout Padding="0,155,0,0">
- 
-                    <Label Text="Sign Up"
+
+                <Label Text="Sign Up"
                        TextColor="#ffffff"
                       FontSize="Medium"
                            FontAttributes="Bold"
                        XAlign="Center"
                        x:Name="signup">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
                                 Tapped="OnTapGestureRecognizerTapped"
                                 NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    
-                  <!--<Label Text="Forgot Password?" 
-                        TextColor="AntiqueWhite"
-                       Grid.Row="0" 
-                       Grid.Column="1"
-                       XAlign="Center"
-                       x:Name="ForgotPass">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="TappedHandler"
-                                NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>-->
-               
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
