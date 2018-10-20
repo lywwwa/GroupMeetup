@@ -36,6 +36,7 @@ namespace GroupMeetup
             Children.Add(new TabbedPages.FriendsPage(uc));
             Children.Add(new TabbedPages.NotificationPage(uc.currentUser, uc, gc));
             Children.Add(new TabbedPages.EventPage(uc, gc));
+            Children.Add(new ProfilePage(uc, uc.currentUser));
             NavigationPage.SetHasNavigationBar(this, false);
             NavigationPage.SetHasBackButton(this, false);
             this.BarBackgroundColor = Color.FromHex("#01a1ff");
